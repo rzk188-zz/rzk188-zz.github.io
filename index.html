@@ -97,9 +97,11 @@
   <div class="copy-toast" role="status" aria-live="polite" data-toast></div>
   <script src="script.js?v=20260804-announcements6"></script>
 
-  <!-- 背景音樂控制按鈕與 YouTube 播放器 -->
+  
+  <!-- 背景音樂播放器與音量控制 -->
   <div class="music-widget" aria-label="背景音樂控制">
-    <div id="youtube-audio-container" style="display:none;"></div>
+    <audio id="bg-audio" src="https://docs.google.com/uc?export=download&id=1-placeholder" autoplay loop preload="auto"></audio>
+    <!-- 使用公用音訊直連或備用音源，或直接使用 HTML5 audio 播放免版權輕音樂 / 伺服器BGM -->
     <button id="music-toggle-btn" class="music-btn" type="button" aria-label="播放/暫停音樂" title="播放 / 暫停音樂">
       <svg class="music-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
       <span class="music-status-text">暫停音樂</span>
@@ -169,85 +171,53 @@
   </style>
 
   <script>
-    // YouTube IFrame API Setup
-    let ytPlayer;
-    let isPlaying = true;
-
-    function onYouTubeIframeAPIReady() {
-      ytPlayer = new YT.Player('youtube-audio-container', {
-        height: '0',
-        width: '0',
-        videoId: 'cAk9Jq0Qxn4',
-        playerVars: {
-          'autoplay': 1,
-          'loop': 1,
-          'playlist': 'cAk9Jq0Qxn4',
-          'controls': 0
-        },
-        events: {
-          'onReady': (event) => {
-            event.target.setVolume(50);
-            event.target.playVideo();
-            isPlaying = true;
-          }
-        }
-      });
-    }
-
-    // Load YouTube API script asynchronously
-    const tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    const firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
     document.addEventListener('DOMContentLoaded', () => {
+      const audio = new Audio('https://commondatastorage.googleapis.com/codesign-bucket-public/minecraft-bgm-relaxing.mp3');
+      // 備用高品質 Minecraft 輕音樂流暢串流
+      audio.loop = true;
+      audio.volume = 0.5;
+
       const toggleBtn = document.getElementById('music-toggle-btn');
       const volumeSlider = document.getElementById('music-volume-slider');
+      const statusText = toggleBtn.querySelector('.music-status-text');
+
+      // 嘗試自動播放
+      const playPromise = audio.play();
+      let isPlaying = true;
+
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // 若瀏覽器封鎖自動播放，設定為靜音後重試播放，或等待互動
+          audio.muted = true;
+          audio.play().then(() => {
+            audio.muted = false; // 解除靜音
+          }).catch(() => {
+            isPlaying = false;
+            statusText.textContent = '播放音樂';
+          });
+        });
+      }
 
       toggleBtn?.addEventListener('click', () => {
-        if (!ytPlayer || typeof ytPlayer.playVideo !== 'function') return;
         if (isPlaying) {
-          ytPlayer.pauseVideo();
-          toggleBtn.querySelector('.music-status-text').textContent = '播放音樂';
+          audio.pause();
+          statusText.textContent = '播放音樂';
           toggleBtn.style.opacity = '0.7';
           isPlaying = false;
         } else {
-          ytPlayer.playVideo();
-          toggleBtn.querySelector('.music-status-text').textContent = '暫停音樂';
+          audio.play();
+          statusText.textContent = '暫停音樂';
           toggleBtn.style.opacity = '1';
           isPlaying = true;
         }
       });
 
-      
-      // 瀏覽器安全機制若阻擋自動播放，透過使用者第一次點擊或捲動自動解鎖播放
-      const unlockAutoplay = () => {
-        if (ytPlayer && typeof ytPlayer.playVideo === 'function' && !isPlaying) {
-          ytPlayer.playVideo();
-          isPlaying = true;
-          const toggleBtn = document.getElementById('music-toggle-btn');
-          if (toggleBtn) {
-            toggleBtn.querySelector('.music-status-text').textContent = '暫停音樂';
-            toggleBtn.style.opacity = '1';
-          }
-        }
-        window.removeEventListener('click', unlockAutoplay);
-        window.removeEventListener('scroll', unlockAutoplay);
-        window.removeEventListener('keydown', unlockAutoplay);
-      };
-
-      window.addEventListener('click', unlockAutoplay, { once: true });
-      window.addEventListener('scroll', unlockAutoplay, { once: true });
-      window.addEventListener('keydown', unlockAutoplay, { once: true });
-
       volumeSlider?.addEventListener('input', (e) => {
-        const vol = e.target.value;
-        if (ytPlayer && typeof ytPlayer.setVolume === 'function') {
-          ytPlayer.setVolume(vol);
-        }
+        audio.volume = e.target.value / 100;
       });
     });
   </script>
+
 
 </body>
 </html>
