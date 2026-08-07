@@ -206,25 +206,26 @@
       .rank-3 .podium-rank-badge { background: linear-gradient(135deg, #f97316, #c2410c); box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4); }
 
       .podium-avatar {
-        width: 80px;
-        height: 80px;
-        margin: 1rem auto 1rem;
-        border-radius: 50%;
+        width: 90px;
+        height: 120px;
+        margin: 1.25rem auto 1rem;
+        border-radius: 12px;
         overflow: hidden;
-        border: 3px solid rgba(255,255,255,0.15);
-        background: rgba(0,0,0,0.2);
+        border: 2px solid rgba(255,255,255,0.15);
+        background: rgba(0,0,0,0.25);
         display: flex;
         align-items: center;
         justify-content: center;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
       }
-      .rank-1 .podium-avatar { border-color: #f59e0b; width: 96px; height: 96px; }
+      .rank-1 .podium-avatar { border-color: #f59e0b; width: 105px; height: 140px; border-width: 3px; }
       .rank-2 .podium-avatar { border-color: #94a3b8; }
       .rank-3 .podium-avatar { border-color: #f97316; }
 
       .podium-avatar img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
         image-rendering: pixelated;
       }
       .podium-name {
@@ -274,13 +275,13 @@
         container.innerHTML = top3.map((s, idx) => {
           const rank = idx + 1;
           const mcId = s.minecraftId || s.name || 'Steve';
-          const avatarUrl = `https://mc-heads.net/avatar/${encodeURIComponent(mcId)}/100`;
+          const avatarUrl = `https://mc-heads.net/bust/${encodeURIComponent(mcId)}/100`;
           
           return `
             <div class="podium-card rank-${rank}">
               <div class="podium-rank-badge">NO. ${rank}</div>
               <div class="podium-avatar">
-                <img src="${avatarUrl}" alt="${s.name}" onerror="this.src='https://mc-heads.net/avatar/Steve/100'">
+                <img src="${avatarUrl}" alt="${s.name}" onerror="this.src='https://mc-heads.net/bust/Steve/100'">
               </div>
               <div class="podium-name">${s.name}</div>
               <div class="podium-amount">NT$ ${s.amount.toLocaleString()}</div>
