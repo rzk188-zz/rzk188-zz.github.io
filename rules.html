@@ -1,22 +1,111 @@
-<!doctype html>
+<!html>
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#1a181d">
   <title>伺服器規範｜好玩一直玩</title>
-  <meta name="description" content="好玩一直玩 Minecraft 伺服器規範與管理條例。">
-  <meta property="og:title" content="伺服器規範｜好玩一直玩">
-  <meta property="og:description" content="請所有玩家詳細閱讀以下規範，違規者將依情節進行處置。">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="server-icon.png">
+  <meta name="description" content="好玩一直玩 Minecraft 伺服器規範與管理條例">
   <link rel="icon" href="server-icon.png" type="image/png">
   <link rel="stylesheet" href="styles.css?v=20260804">
   <link rel="stylesheet" href="commands.css?v=20260804">
   <link rel="stylesheet" href="theme.css?v=20260804">
+  <style>
+    .rules-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 6rem;
+    }
+    .rules-header-card {
+      text-align: center;
+      margin-bottom: 3rem;
+      background: linear-gradient(135deg, rgba(251, 146, 60, 0.1), rgba(249, 115, 22, 0.05));
+      border: 1px solid rgba(251, 146, 60, 0.25);
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+    .rules-header-card h1 {
+      font-size: 2.2rem;
+      color: #fb923c;
+      margin-bottom: 1rem;
+      font-weight: 800;
+    }
+    .rules-header-card p {
+      font-size: 1.1rem;
+      color: var(--muted, #c8bdc4);
+      line-height: 1.8;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+    .rule-section-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(251, 146, 60, 0.15);
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    .rule-section-card:hover {
+      border-color: rgba(251, 146, 60, 0.4);
+      transform: translateY(-2px);
+    }
+    .rule-section-card h2 {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.5rem;
+      color: #fb923c;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(251, 146, 60, 0.15);
+    }
+    .rule-section-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .rule-section-card li {
+      position: relative;
+      padding-left: 1.75rem;
+      margin-bottom: 1rem;
+      line-height: 1.8;
+      font-size: 1.055rem;
+      color: var(--ink, #f3edf1);
+    }
+    .rule-section-card li::before {
+      content: "•";
+      position: absolute;
+      left: 0.5rem;
+      color: #fb923c;
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+    .rule-alert {
+      margin-top: 1.25rem;
+      padding: 1rem 1.25rem;
+      background: rgba(239, 68, 68, 0.1);
+      border-left: 4px solid #ef4444;
+      border-radius: 8px;
+      color: #fca5a5;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .rule-tip {
+      margin-top: 1.25rem;
+      padding: 1rem 1.25rem;
+      background: rgba(251, 146, 60, 0.08);
+      border-left: 4px solid #fb923c;
+      border-radius: 8px;
+      color: #fed7aa;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+  </style>
 </head>
-<body class="guide-page rules-page">
-  <header class="site-header guide-header scrolled" data-header>
+<body class="guide-page">
+  <header class="site-header scrolled" data-header>
     <a class="brand" href="index.html" aria-label="回到好玩一直玩首頁">
       <img src="server-icon.png" alt="" width="56" height="56">
       <span><strong>好玩一直玩</strong></span>
@@ -33,47 +122,51 @@
     </button>
   </header>
 
-  <main class="guide-container">
-    <section class="guide-section">
-      <div class="guide-heading">
-        <p class="eyebrow">SERVER RULES</p>
-        <h2>好玩一直玩｜伺服器規範</h2>
-        <p>請所有玩家詳細閱讀以下規範，違規者將依情節進行處置。</p>
-      </div>
+  <main class="rules-container">
+    <div class="rules-header-card">
+      <h1>好玩一直玩｜伺服器規範</h1>
+      <p>請所有玩家詳細閱讀以下規範，共同維護公平、穩定與優質的社群氛圍。違規者將依情節進行處置。</p>
+    </div>
 
-      <div class="guide-card" style="margin-bottom: 2rem;">
-        <h3 style="color: var(--accent-color, #fb923c); margin-bottom: 1rem;">💬 聊天規範</h3>
-        <ul style="list-style-type: disc; padding-left: 1.5rem; line-height: 1.8;">
-          <li>禁止任何形式的辱罵、攻擊、騷擾行為</li>
-          <li>禁止髒話、性騷擾、人身攻擊、歧視、威脅、政治敏感發言</li>
-          <li>禁止洗版、重複發言、無意義內容刷屏</li>
-          <li>禁止對管理人員挑釁、詆毀或蓄意干擾其執行職務。</li>
-        </ul>
-        <p style="margin-top: 1rem; color: var(--text-muted, #aaa); font-style: italic;">請保持友善、理性發言，共同維護良好聊天環境。</p>
+    <!-- 聊天規範 -->
+    <section class="rule-section-card">
+      <h2>💬 聊天規範</h2>
+      <ul>
+        <li>禁止任何形式的辱罵、攻擊、騷擾行為。</li>
+        <li>禁止髒話、性騷擾、人身攻擊、歧視、威脅、政治敏感發言。</li>
+        <li>禁止洗版、重複發言、無意義內容刷屏。</li>
+        <li>禁止對管理人員挑釁、詆毀或蓄意干擾其執行職務。</li>
+      </ul>
+      <div class="rule-tip">
+        💡 請保持友善、理性發言，共同維護良好聊天環境。
       </div>
+    </section>
 
-      <div class="guide-card" style="margin-bottom: 2rem;">
-        <h3 style="color: var(--accent-color, #fb923c); margin-bottom: 1rem;">⚔️ 遊玩規範</h3>
-        <ul style="list-style-type: disc; padding-left: 1.5rem; line-height: 1.8;">
-          <li>禁止使用任何外掛、輔助工具或第三方軟體</li>
-          <li>禁止利用伺服器漏洞或管理疏忽進行不當操作</li>
-          <li>禁止偷竊、詐騙、破壞他人建築、影響他人權益</li>
-          <li>禁止建造高頻紅石裝置導致伺服器延遲或當機</li>
-          <li>禁止在刷怪塔無意義掛機；離開伺服器請務必關閉紅石機關</li>
-          <li>禁止無意義跑圖</li>
-        </ul>
-        <div style="margin-top: 1.25rem; padding: 1rem; background: rgba(239, 68, 68, 0.1); border-left: 4px solid #ef4444; border-radius: 4px;">
-          <p style="color: #f87171; font-weight: bold; margin: 0;">⚠ 違反規範視情節可能遭 永久封鎖帳號</p>
-        </div>
+    <!-- 遊玩規範 -->
+    <section class="rule-section-card">
+      <h2>⛏️ 遊玩規範</h2>
+      <ul>
+        <li>禁止使用任何外掛、輔助工具或第三方軟體。</li>
+        <li>禁止利用伺服器漏洞或管理疏忽進行不當操作。</li>
+        <li>禁止偷竊、詐騙、破壞他人建築、影響他人權益。</li>
+        <li>禁止建造高頻紅石裝置導致伺服器延遲或當機。</li>
+        <li>禁止在刷怪塔無意義掛機；離開伺服器請務必關閉紅石機關。</li>
+        <li>禁止無意義跑圖。</li>
+      </ul>
+      <div class="rule-alert">
+        ⚠ 違反規範視情節可能遭永久封鎖帳號。
       </div>
+    </section>
 
-      <div class="guide-card">
-        <h3 style="color: var(--accent-color, #fb923c); margin-bottom: 1rem;">🏰 領地規範</h3>
-        <ul style="list-style-type: disc; padding-left: 1.5rem; line-height: 1.8;">
-          <li>請勿在他人領地內外偷竊或破壞建築</li>
-          <li>領地開權限給他人導致損失，將不受理申訴</li>
-        </ul>
-        <p style="margin-top: 1rem; color: var(--text-muted, #aaa); font-style: italic;">請妥善管理領地與權限，避免爭議發生。</p>
+    <!-- 領地規範 -->
+    <section class="rule-section-card">
+      <h2>🏰 領地規範</h2>
+      <ul>
+        <li>請勿在他人領地內外偷竊或破壞建築。</li>
+        <li>領地開權限給他人導致損失，將不受理申訴。</li>
+      </ul>
+      <div class="rule-tip">
+        🛡️ 請妥善管理領地與權限，避免爭議發生。
       </div>
     </section>
   </main>
