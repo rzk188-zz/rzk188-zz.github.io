@@ -4,30 +4,34 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#1a181d">
-  <title>好玩一直玩｜Minecraft 伺服器</title>
-  <meta name="description" content="好玩一直玩 Minecraft 伺服器官方網站，提供順暢的生存體驗與豐富內容。">
-  <meta property="og:title" content="好玩一直玩｜Minecraft 伺服器">
-  <meta property="og:description" content="順暢生存，公平社群與豐富玩法。">
+  <title>好玩一直玩伺服器｜自製系統・順暢生存</title>
+  <meta name="description" content="好玩一直玩是支援 Java 與基岩版的 Minecraft 生存伺服器，提供每日任務、主題活動、藍圖定向、資源整理與傳送石碑等自製玩法。">
+  <meta property="og:title" content="好玩一直玩伺服器｜自製系統・順暢生存">
+  <meta property="og:description" content="一座適合安心生活、自由創造與結識夥伴的 Minecraft 小鎮。">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="server-icon.png">
-  <link rel="icon" href="server-icon.png" type="image/png">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="theme.css">
+  <meta property="og:image" content="/xingling-world-20260716.webp?v=20260804-imagefix2">
+  <link rel="icon" href="server-icon.png" type="image/webp">
+  <link rel="preload" as="image" href="/xingling-world-20260716.webp?v=20260804-imagefix2" type="image/webp" fetchpriority="high">
+  <link rel="stylesheet" href="/styles.css?v=20260804-announcements6">
+  <link rel="stylesheet" href="/theme.css?v=20260804-announcements6">
 </head>
-<body>
+<body data-sponsor-api="/api/sponsors" data-player-api="/api/player-history" data-announcement-api="/api/announcements">
   <a class="skip-link" href="#main-content">前往主要內容</a>
-  
+
   <header class="site-header" data-header>
-    <a class="brand" href="index.html" aria-label="回到好玩一直玩首頁">
-      <img src="server-icon.png" alt="" width="48" height="48">
+    <a class="brand" href="#top" aria-label="回到好玩一直玩首頁">
+      <img src="server-icon.png" alt="" width="56" height="56">
       <span><strong>好玩一直玩</strong></span>
     </a>
-    <nav class="main-nav" id="main-nav" aria-label="主要導覽" data-nav>
+
+        <nav class="main-nav" id="main-nav" aria-label="主要導覽" data-nav>
       <a href="index.html" aria-current="page">首頁</a>
-      <a href="shop.html">伺服器商店</a>
-      <a href="commands.html">遊玩教學</a>
-      <a href="rules.html">玩家守則</a>
+      <a href="index.html#join" >加入伺服器</a>
+      <a href="commands.html" >遊玩教學</a>
+      <a href="rules.html" >玩家守則</a>
+      <a href="shop.html" >伺服器商店</a>
     </nav>
+
     <a class="header-discord" href="https://discord.gg/mQWhSPuZZD" target="_blank" rel="noopener noreferrer">Discord 社群</a>
     <button class="menu-button" type="button" aria-label="開啟選單" aria-controls="main-nav" aria-expanded="false" data-menu-button>
       <span></span><span></span><span></span>
@@ -35,133 +39,128 @@
   </header>
 
   <main id="main-content">
-    <section class="hero-section section">
-      <div class="hero-backdrop" aria-hidden="true"></div>
-      <div class="hero-container">
-        <div class="hero-content reveal">
-          <span class="server-status-badge" data-status-badge>
-            <span class="status-dot"></span>
-            <span data-status-text>正在取得伺服器狀態...</span>
-          </span>
-          <h1>好玩一直玩</h1>
-          <p class="hero-lead">
-            伺服器環境重視 公平、穩定與社群氛圍。<br>
-            持續更新與優化，並根據玩家回饋進行調整。
-          </p>
-          <div class="hero-actions">
-            <button class="copy-button hero-ip-button" type="button" data-copy="haowan.pro">
-              <span class="button-label">複製 IP: haowan.pro</span>
-            </button>
-            <a class="button secondary" href="shop.html">前往商店</a>
-          </div>
-        </div>
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <img class="hero-image" src="/xingling-world-20260716.webp?v=20260804-imagefix2" alt="好玩一直玩櫻花城鎮、神社與五重塔的 Minecraft 遊戲實景" width="2048" height="1152" fetchpriority="high">
+      <div class="hero-shade" aria-hidden="true"></div>
 
-        <aside class="hero-supporters reveal" aria-label="贊助玩家名單">
-          <div class="hero-supporters-header">
-            <strong>贊助玩家</strong>
+      <div class="hero-quick-info">
+        <aside class="hero-supporters" aria-label="贊助玩家">
+          <header>
+            <div><strong>贊助玩家</strong></div>
+          </header>
+          <div class="hero-supporter-list" data-hero-supporter-list tabindex="0" aria-label="贊助玩家名單，可上下滑動">
+            <div class="hero-supporter-empty"><span>星</span><p><strong>等待第一位支持者</strong><small>贊助內容會同步顯示於此</small></p></div>
           </div>
-          <div class="hero-supporters-list" id="hero-supporters-list">
-            <!-- Dynamically populated from sponsors.json -->
-          </div>
+          <footer><a href="https://discord.gg/mQWhSPuZZD" target="_blank" rel="noopener noreferrer">了解贊助方式</a></footer>
         </aside>
-      </div>
-    </section>
 
-    <section class="features-section section" id="features">
-      <div class="section-container">
-        <div class="section-heading reveal">
-          <p class="eyebrow">FEATURES</p>
-          <h2>伺服器特色</h2>
-          <p>專為玩家打造的優質遊戲環境，享受最純粹的 Minecraft 樂趣。</p>
+        <a class="hero-status status-loading" href="#" aria-label="查看好玩一直玩在線紀錄" data-server-status>
+          <span class="status-dot" aria-hidden="true"></span>
+          <span class="hero-status-copy"><small>連線版本：1.21 ~ 26.2</small><strong>目前線上 <b data-online-count>--</b> 人</strong></span>
+          <span class="hero-status-link">在線紀錄</span>
+        </a>
+      </div>
+
+      <div class="hero-content">
+        
+        <h1 id="hero-title">好玩一直玩</h1>
+        <p class="hero-lead">自製系統，順暢生存。<br>在櫻色町景裡，慢慢蓋出屬於你的生活。</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#join">立即加入</a>
+          <a class="button button-light" href="https://discord.gg/mQWhSPuZZD" target="_blank" rel="noopener noreferrer">加入 Discord 社群</a>
         </div>
-        <div class="features-grid">
-          <article class="feature-card reveal">
-            <div class="feature-icon">🛡️</div>
-            <h3>公平公正</h3>
-            <p>完善的管理機制與防外掛系統，保障每位玩家的勞動成果與遊玩權益。</p>
-          </article>
-          <article class="feature-card reveal">
-            <div class="feature-icon">⚡</div>
-            <h3>高效流暢</h3>
-            <p>頂級伺服器硬體配置，確保多人線上遊玩依然順暢不卡頓。</p>
-          </article>
-          <article class="feature-card reveal">
-            <div class="feature-icon">🌟</div>
-            <h3>豐富玩法</h3>
-            <p>獨特的黏液科技與在地化經濟系統，讓生存冒險更加耐玩多變。</p>
-          </article>
+
+        <div class="hero-addresses" aria-label="伺服器連線位址">
+          <button class="address-button copy-button" type="button" data-copy="haowan.pro">
+            <span>JAVA EDITION</span><strong>haowan.pro</strong><small class="button-label">點擊複製</small>
+          </button>
+          <button class="address-button copy-button" type="button" data-copy="haowan.pro">
+            <span>BEDROCK EDITION</span><strong>haowan.pro</strong><small class="button-label">點擊複製</small>
+          </button>
         </div>
       </div>
+      <a class="scroll-cue" href="#announcements"><span>先看町內近況</span><i aria-hidden="true"></i></a>
     </section>
 
-    <section class="gameplay-section section" id="gameplay">
-      <div class="section-container">
-        <div class="section-heading reveal">
-          <p class="eyebrow">GAMEPLAY</p>
-          <h2>自製玩法</h2>
-          <p>融合經典與創新，打造獨一無二的伺服器體驗。</p>
-        </div>
-        <div class="gameplay-grid">
-          <div class="gameplay-item reveal">
-            <h3>領地與石碑系統</h3>
-            <p>輕鬆保護你的私人建築與財產，安心建設無後顧之憂。</p>
+    <section class="announcement-section section" id="announcements" aria-labelledby="announcement-title">
+      <div class="announcement-board reveal">
+        <header class="announcement-board-header">
+          <div>
+            
+            <h2 id="announcement-title">町內近況</h2>
+            <p>公告與更新日誌都收在這裡，輕輕滑過，就能知道町裡最近發生了什麼。</p>
           </div>
-          <div class="gameplay-item reveal">
-            <h3>玩家市集與經濟</h3>
-            <p>自由建立商店與玩家交易，打造繁榮的伺服器經濟圈。</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="announcement-section section" id="announcements">
-      <div class="section-container">
-        <div class="section-heading reveal">
-          <p class="eyebrow">NEWS</p>
-          <h2>町內近況</h2>
-          <p>掌握伺服器最新公告與活動資訊。</p>
-        </div>
-        <div class="announcement-card reveal">
-          <h3>伺服器正式開服！</h3>
-          <p>歡迎各位冒險者來到好玩一直玩！快邀請好友一起來探索全新的生存世界吧！</p>
-          <time datetime="2026-07-17">2026年7月17日</time>
-        </div>
-      </div>
-    </section>
-
-    <section class="join-section section" id="join">
-      <div class="section-container">
-        <div class="section-heading reveal">
-          <p class="eyebrow">JOIN US</p>
-          <h2>今天就搬進好玩一直玩</h2>
-          <p>選擇你的遊戲版本，複製伺服器位址即可隨時登入伺服器。</p>
-        </div>
-        <div class="join-grid">
-          <article class="join-card reveal">
-            <header><span>JAVA EDITION</span><strong>電腦版</strong></header>
-            <div class="join-address">
-              <small>伺服器位址</small><strong>haowan.pro</strong>
-              <button class="copy-button" type="button" data-copy="haowan.pro"><span class="button-label">複製位址</span></button>
+          <div class="announcement-actions">
+            <div class="announcement-filters" role="tablist" aria-label="篩選公告類型">
+              <button type="button" role="tab" data-announcement-filter="all" aria-selected="true">全部</button>
+              <button type="button" role="tab" data-announcement-filter="general" aria-selected="false">伺服公告</button>
+              <button type="button" role="tab" data-announcement-filter="update" aria-selected="false">更新日誌</button>
             </div>
-            <ol>
-              <li><span>1</span><p>開啟 Minecraft Java Edition，選擇「多人遊戲」。</p></li>
-              <li><span>2</span><p>新增伺服器，名稱填寫「好玩一直玩」。</p></li>
-              <li><span>3</span><p>輸入 <strong>haowan.pro</strong> 即可連線。</p></li>
-            </ol>
-            <footer>支援 Java 1.21 以上版本</footer>
-          </article>
+            <a class="text-link" href="https://discord.gg/mQWhSPuZZD" target="_blank" rel="noopener noreferrer">完整公告</a>
+          </div>
+        </header>
+        <div class="announcement-feed" data-announcement-feed role="list" aria-live="polite" aria-label="最新公告與更新日誌">
+          <div class="announcement-loading" role="listitem">
+            <span aria-hidden="true"></span>
+            <p>正在整理町內近況…</p>
+          </div>
         </div>
+        <footer class="announcement-footer">
+          <p data-announcement-count aria-live="polite"></p>
+          <button type="button" data-announcement-load hidden>載入更早的公告</button>
+        </footer>
       </div>
     </section>
+
+    
+
+    
+
+    <section class="community-section section" id="community" aria-labelledby="community-title">
+      <div class="community-heading reveal">
+        
+        <h2 id="community-title">町內動態</h2>
+        <p>查看目前伺服器狀態，並從町內公告掌握最新消息與活動。</p>
+      </div>
+
+      <div class="community-layout">
+        <article class="status-block reveal">
+          <header><span>SERVER STATUS</span><strong>目前伺服器狀態</strong></header>
+          <a class="status-live status-loading" href="#" aria-label="查看好玩一直玩在線人數與歷史紀錄" data-server-status>
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status-live-copy"><small>連線版本：1.21 ~ 26.2</small><strong>目前線上 <b data-online-count>--</b> 人</strong></span>
+            <span class="status-live-link">查看人數趨勢</span>
+          </a>
+          <div class="status-details">
+            <p><span>開放時間</span><strong>24 小時</strong></p>
+            <p><span>Java 版本</span><strong>1.21 ~ 26.2</strong></p>
+            <p><span>基岩版本</span><strong>最新版</strong></p>
+          </div>
+          <a class="text-link" href="#">查看在線紀錄</a>
+        </article>
+
+        <article class="community-callout reveal">
+          <img src="server-icon.png" alt="好玩一直玩伺服器圖標" width="104" height="104" loading="lazy" decoding="async">
+          <p class="system-number">伺服器公告</p>
+          <h3>公告、活動與居民交流</h3>
+          <p>伺服器的重要消息會優先公布在 Discord。遇到連線問題、想找鄰居或參加町內活動，都可以直接來社群詢問。</p>
+          <div><a class="button button-primary" href="https://discord.gg/mQWhSPuZZD" target="_blank" rel="noopener noreferrer">加入 Discord 社群</a><a class="text-link" href="https://forum.gamer.com.tw/Co.php?bsn=18673&amp;sn=1110610" target="_blank" rel="noopener noreferrer">閱讀巴哈介紹</a></div>
+        </article>
+      </div>
+
+    </section>
+
+    
   </main>
 
-  <footer class="site-footer">
+    <footer class="site-footer">
     <div class="footer-brand">
       <img src="server-icon.png" alt="" width="48" height="48">
       <p><strong>好玩一直玩伺服器</strong></p>
     </div>
     <nav aria-label="頁尾連結">
       <a href="index.html">首頁</a>
+      <a href="index.html#join">加入伺服器</a>
       <a href="shop.html">伺服器商店</a>
       <a href="commands.html">遊玩教學</a>
       <a href="rules.html">玩家守則</a>
@@ -170,6 +169,7 @@
     <p>Minecraft is a trademark of Mojang Studios. This server is not affiliated with Mojang or Microsoft.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <div class="copy-toast" role="status" aria-live="polite" data-toast></div>
+  <script src="script.js?v=20260804-announcements6"></script>
 </body>
 </html>
