@@ -1,26 +1,26 @@
 [
   {
-    "name": "shih_li",
-    "minecraftId": "shih_li",
-    "amount": 2000,
-    "currency": "TWD",
-    "hideAmount": false,
-    "message": "我喜歡這個伺服器"
-  },
-  {
-    "name": "匿名玩家",
-    "minecraftId": "Steve",
-    "amount": 2000,
+    "name": "benmaverick0426",
+    "minecraftId": "benmaverick0426",
+    "amount": 2300,
     "currency": "TWD",
     "hideAmount": false,
     "message": ""
   },
   {
-    "name": "匿名玩家",
-    "minecraftId": "Alex",
-    "amount": 1200,
+    "name": "tuetle_010",
+    "minecraftId": "tuetle_010",
+    "amount": 2300,
     "currency": "TWD",
     "hideAmount": false,
-    "message": "最喜歡粘液科技了"
+    "message": ""
+  },
+  {
+    "name": "saiyng",
+    "minecraftId": "saiyng",
+    "amount": 2300,
+    "currency": "TWD",
+    "hideAmount": false,
+    "message": ""
   }
 ]
