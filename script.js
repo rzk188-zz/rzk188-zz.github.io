@@ -213,12 +213,15 @@ function createHeroSupporterItem(record) {
   info.className = "hero-supporter-info";
   const name = document.createElement("strong");
   const amount = document.createElement("span");
-  const message = document.createElement("small");
   name.textContent = record.name;
   amount.className = "hero-supporter-amount";
   amount.textContent = record.hideAmount ? "御守幣未公開" : formatSponsorAmount(record);
-  message.textContent = record.message;
-  info.append(name, amount, message);
+  info.append(name, amount);
+  if (record.message) {
+    const message = document.createElement("small");
+    message.textContent = record.message;
+    info.append(message);
+  }
 
   item.append(avatar, info);
   return item;
