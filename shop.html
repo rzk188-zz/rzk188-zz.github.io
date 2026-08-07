@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8">
@@ -29,13 +29,57 @@
     </button>
   </header>
 
-  <main class="guide-container" style="min-height: 60vh; display: flex; align-items: center; justify-content: center;">
-    <section class="guide-section" style="text-align: center;">
-      <div class="guide-heading">
-        <p class="eyebrow">SERVER STORE</p>
-        <h2>贊助</h2>
-        <p style="margin-top: 1rem; color: var(--text-muted, #aaa);">商店內容建置中，敬請期待...</p>
+  <main class="guide-container" style="max-width: 720px; margin: 4rem auto; padding: 0 1.5rem;">
+    <section class="guide-section" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 24px; padding: 2.5rem; backdrop-filter: blur(12px); box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
+      <div class="guide-heading" style="text-align: center; margin-bottom: 2rem;">
+        <p class="eyebrow" style="color: #fb923c; font-weight: 800; letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 0.5rem;">SERVER DONATE</p>
+        <h2 style="font-size: 2rem; font-weight: 800; color: #f3edf1; margin: 0 0 0.5rem 0;">伺服器贊助</h2>
+        <p style="color: #c8bdc4; font-size: 0.95rem; margin: 0;">感謝您對「好玩一直玩」伺服器的支持，請填寫下方贊助資訊與選擇付款方式</p>
       </div>
+
+      <form id="donate-form" style="display: flex; flex-direction: column; gap: 1.5rem;" onsubmit="handleDonateSubmit(event)">
+        <!-- 贊助金額 -->
+        <div class="form-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <label for="donate-amount" style="font-weight: 700; color: #f3edf1; font-size: 0.95rem;">贊助金額 (TWD) <span style="color: #fb923c;">*</span></label>
+          <input type="number" id="donate-amount" min="100" step="50" placeholder="例如：500" required style="padding: 0.85rem 1rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; color: #fff; font-size: 1rem; outline: none; transition: border-color 0.2s;">
+        </div>
+
+        <!-- 贊助 ID -->
+        <div class="form-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <label for="donate-id" style="font-weight: 700; color: #f3edf1; font-size: 0.95rem;">Minecraft 遊戲 ID <span style="color: #fb923c;">*</span></label>
+          <input type="text" id="donate-id" placeholder="請輸入您的遊戲帳號 ID (例如: Steve)" required style="padding: 0.85rem 1rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; color: #fff; font-size: 1rem; outline: none; transition: border-color 0.2s;">
+        </div>
+
+        <!-- 贊助方式 -->
+        <div class="form-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <label style="font-weight: 700; color: #f3edf1; font-size: 0.95rem;">贊助方式 <span style="color: #fb923c;">*</span></label>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <label class="payment-option" style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; cursor: pointer; transition: all 0.2s;">
+              <input type="radio" name="payment-method" value="convenience" required style="accent-color: #fb923c;">
+              <div>
+                <strong style="display: block; color: #f3edf1; font-size: 0.95rem;">超商繳費</strong>
+                <small style="color: #c8bdc4; font-size: 0.8rem;">7-11 / 全家代碼繳費</small>
+              </div>
+            </label>
+            <label class="payment-option" style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; cursor: pointer; transition: all 0.2s;">
+              <input type="radio" name="payment-method" value="transfer" required style="accent-color: #fb923c;">
+              <div>
+                <strong style="display: block; color: #f3edf1; font-size: 0.95rem;">銀行轉帳</strong>
+                <small style="color: #c8bdc4; font-size: 0.8rem;">ATM / 網路銀行轉帳</small>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- 贊助留言 -->
+        <div class="form-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <label for="donate-message" style="font-weight: 700; color: #f3edf1; font-size: 0.95rem;">贊助留言 <small style="color: #c8bdc4; font-weight: normal;">(選填)</small></label>
+          <textarea id="donate-message" rows="3" placeholder="留下想對伺服器說的話..." style="padding: 0.85rem 1rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; color: #fff; font-size: 1rem; outline: none; resize: vertical; transition: border-color 0.2s;"></textarea>
+        </div>
+
+        <!-- 提交按鈕 -->
+        <button type="submit" style="margin-top: 1rem; padding: 1rem; background: linear-gradient(135deg, #fb923c, #ea580c); color: #fff; border: none; border-radius: 12px; font-size: 1.05rem; font-weight: 800; cursor: pointer; box-shadow: 0 8px 20px rgba(251, 146, 60, 0.3); transition: transform 0.2s, box-shadow 0.2s;">確認送出贊助申請</button>
+      </form>
     </section>
   </main>
 
@@ -43,6 +87,21 @@
     <p>Minecraft is a trademark of Mojang Studios. This server is not affiliated with Mojang or Microsoft.</p>
   </footer>
 
+  <div class="copy-toast" role="status" aria-live="polite" data-toast></div>
+
   <script src="script.js?v=20260804"></script>
+  <script>
+    function handleDonateSubmit(e) {
+      e.preventDefault();
+      const amount = document.getElementById('donate-amount').value;
+      const mcId = document.getElementById('donate-id').value;
+      const method = document.querySelector('input[name="payment-method"]:checked').value;
+      const message = document.getElementById('donate-message').value;
+
+      const methodName = method === 'convenience' ? '超商繳費' : '銀行轉帳';
+      alert(`感謝您的支持！\n\n贊助玩家：${mcId}\n贊助金額：NT$ ${amount}\n贊助方式：${methodName}\n\n請前往 Discord 社群聯繫管理員完成後續繳費手續！`);
+      document.getElementById('donate-form').reset();
+    }
+  </script>
 </body>
 </html>
