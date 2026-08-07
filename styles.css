@@ -2529,3 +2529,121 @@ img {
     transform: none;
   }
 }
+
+/* 線上玩家彈出視窗樣式 */
+.player-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  padding: 1rem;
+}
+.player-modal-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.player-modal-card {
+  background: #1e1b22;
+  border: 1px solid rgba(251, 146, 60, 0.3);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 480px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  color: #f3edf1;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+.player-modal-overlay.open .player-modal-card {
+  transform: translateY(0);
+}
+.player-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.player-modal-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #fb923c;
+  font-weight: 800;
+}
+.player-modal-close {
+  background: transparent;
+  border: none;
+  color: #c8bdc4;
+  font-size: 1.8rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+}
+.player-modal-close:hover {
+  color: #fb923c;
+}
+.player-modal-body {
+  padding: 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+}
+.player-loading, .player-empty {
+  text-align: center;
+  color: #c8bdc4;
+  padding: 2rem 0;
+  margin: 0;
+}
+.player-count-info {
+  margin: 0 0 1rem 0;
+  font-size: 0.95rem;
+  color: #c8bdc4;
+  text-align: center;
+}
+.player-count-info strong {
+  color: #fb923c;
+}
+.player-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 0.75rem;
+}
+.player-item {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: border-color 0.2s ease;
+}
+.player-item:hover {
+  border-color: rgba(251, 146, 60, 0.4);
+}
+.player-item img {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  image-rendering: pixelated;
+  background: rgba(0,0,0,0.2);
+}
+.player-item span {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #f3edf1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
