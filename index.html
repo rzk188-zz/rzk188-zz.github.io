@@ -12,8 +12,114 @@
   <meta property="og:image" content="/xingling-world-20260716.webp?v=20260804-imagefix2">
   <link rel="icon" href="server-icon.png" type="image/webp">
   <link rel="preload" as="image" href="/xingling-world-20260716.webp?v=20260804-imagefix2" type="image/webp" fetchpriority="high">
-  <link rel="stylesheet" href="/styles.css?v=20260804-announcements6">
-  <link rel="stylesheet" href="/theme.css?v=20260804-announcements6">
+  <link rel="stylesheet" href="styles.css?v=20260804-announcements6">
+  <link rel="stylesheet" href="theme.css?v=20260804-announcements6">
+  <style>
+    /* 贊助排行榜 (原版樣式) */
+    .podium-section {
+      max-width: 900px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+    }
+    .podium-heading {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .podium-heading h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--ink, #f3edf1);
+      margin-top: 0.5rem;
+    }
+    .podium-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      align-items: center;
+    }
+    @media (max-width: 768px) {
+      .podium-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .podium-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      position: relative;
+    }
+    .podium-card.rank-1 {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.08), rgba(217, 119, 6, 0.04));
+      border-color: rgba(245, 158, 11, 0.4);
+      box-shadow: 0 12px 35px rgba(245, 158, 11, 0.1);
+      transform: translateY(-8px);
+    }
+    .podium-card.rank-2 {
+      background: linear-gradient(135deg, rgba(148, 163, 184, 0.08), rgba(100, 116, 139, 0.04));
+      border-color: rgba(148, 163, 184, 0.4);
+      box-shadow: 0 12px 35px rgba(148, 163, 184, 0.1);
+    }
+    .podium-card.rank-3 {
+      background: linear-gradient(135deg, rgba(249, 115, 22, 0.08), rgba(194, 65, 12, 0.04));
+      border-color: rgba(249, 115, 22, 0.4);
+      box-shadow: 0 12px 35px rgba(249, 115, 22, 0.1);
+    }
+    .podium-rank-badge {
+      position: absolute;
+      top: -16px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.25rem 0.85rem;
+      border-radius: 50px;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .rank-1 .podium-rank-badge { background: linear-gradient(135deg, #f59e0b, #d97706); box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4); }
+    .rank-2 .podium-rank-badge { background: linear-gradient(135deg, #94a3b8, #64748b); box-shadow: 0 4px 12px rgba(148, 163, 184, 0.4); }
+    .rank-3 .podium-rank-badge { background: linear-gradient(135deg, #f97316, #c2410c); box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4); }
+
+    .podium-avatar {
+      width: 80px;
+      height: 80px;
+      margin: 1rem auto 1rem;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid rgba(255,255,255,0.15);
+      background: rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .rank-1 .podium-avatar { border-color: #f59e0b; width: 96px; height: 96px; }
+    .rank-2 .podium-avatar { border-color: #94a3b8; }
+    .rank-3 .podium-avatar { border-color: #f97316; }
+
+    .podium-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      image-rendering: pixelated;
+    }
+    .podium-name {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--ink, #f3edf1);
+      margin-bottom: 0.25rem;
+    }
+    .podium-amount {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #fb923c;
+      margin-bottom: 0.75rem;
+    }
+  </style>
 </head>
 <body data-sponsor-api="/api/sponsors" data-player-api="/api/player-history" data-announcement-api="/api/announcements">
   <a class="skip-link" href="#main-content">前往主要內容</a>
@@ -24,7 +130,7 @@
       <span><strong>好玩一直玩</strong></span>
     </a>
     <nav class="main-nav" id="main-nav" aria-label="主要導覽" data-nav>
-      <a href="index.html">首頁</a>
+      <a href="index.html" aria-current="page">首頁</a>
       <a href="shop.html">贊助</a>
       <a href="commands.html">遊玩教學</a>
       <a href="rules.html">伺服器規範</a>
@@ -37,7 +143,7 @@
 
   <main id="main-content">
     <section class="hero" id="top" aria-labelledby="hero-title">
-      <img class="hero-image" src="/xingling-world-20260716.webp?v=20260804-imagefix2" alt="好玩一直玩" width="2048" height="1152" fetchpriority="high">
+      <img class="hero-image" src="/xingling-world-20260716.webp?v=20260804-imagefix2" alt="好玩一直玩櫻花城鎮、神社與五重塔的 Minecraft 遊戲實景" width="2048" height="1152" fetchpriority="high">
       <div class="hero-shade" aria-hidden="true"></div>
 
       <div class="hero-quick-info">
@@ -101,54 +207,66 @@
     </section>
 
     <!-- 贊助排行榜 (Podium) -->
-    <section class="podium-section" style="max-width: 900px; margin: 4rem auto; padding: 0 1.5rem;">
-      <div style="text-align: center; margin-bottom: 2.5rem;">
+    <section class="podium-section">
+      <div class="podium-heading">
         <p class="eyebrow" style="color: #fb923c; font-weight: 800; letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 0.5rem;">SUPPORTERS PODIUM</p>
-        <h2 style="font-size: 2rem; font-weight: 800; color: #f3edf1; margin: 0;">贊助排行榜</h2>
+        <h2>贊助排行榜</h2>
       </div>
 
-      <div class="podium-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; align-items: end;">
-        
-        <!-- 第 2 名 (銀牌) -->
-        <div class="podium-card" style="background: rgba(255, 255, 255, 0.03); border: 2px solid rgba(192, 192, 192, 0.4); border-radius: 20px; padding: 2rem 1rem; text-align: center; backdrop-filter: blur(10px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); transform: translateY(10px);">
-          <div style="font-size: 1.5rem; font-weight: 900; color: #c0c0c0; margin-bottom: 1rem;">🥈 2nd</div>
-          <div style="width: 80px; height: 80px; margin: 0 auto 1rem auto; border-radius: 50%; overflow: hidden; border: 3px solid #c0c0c0; box-shadow: 0 0 15px rgba(192,192,192,0.3);">
-            <img src="https://mc-heads.net/avatar/tuetle_010/80" alt="tuetle_010 頭像" style="width: 100%; height: 100%; object-fit: cover;">
-          </div>
-          <h3 style="font-size: 1.1rem; font-weight: 700; color: #f3edf1; margin: 0 0 0.5rem 0;">tuetle_010</h3>
-          <div style="font-size: 1.15rem; font-weight: 800; color: #fb923c;">NT$ 2,300</div>
-        </div>
-
-        <!-- 第 1 名 (金牌) -->
-        <div class="podium-card" style="background: rgba(255, 255, 255, 0.05); border: 2px solid #fbbf24; border-radius: 24px; padding: 2.5rem 1rem; text-align: center; backdrop-filter: blur(12px); box-shadow: 0 15px 40px rgba(251, 191, 36, 0.2); transform: translateY(-10px); position: relative;">
-          <div style="position: absolute; top: -16px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #fbbf24, #d97706); color: #000; font-weight: 900; font-size: 0.75rem; padding: 4px 12px; border-radius: 20px; letter-spacing: 1px; box-shadow: 0 4px 10px rgba(251,191,36,0.4);">TOP 1</div>
-          <div style="font-size: 1.8rem; font-weight: 900; color: #fbbf24; margin-bottom: 1rem;">👑 1st</div>
-          <div style="width: 100px; height: 100px; margin: 0 auto 1rem auto; border-radius: 50%; overflow: hidden; border: 4px solid #fbbf24; box-shadow: 0 0 25px rgba(251,191,36,0.5);">
-            <img src="https://mc-heads.net/avatar/benmaverick0426/100" alt="benmaverick0426 頭像" style="width: 100%; height: 100%; object-fit: cover;">
-          </div>
-          <h3 style="font-size: 1.25rem; font-weight: 800; color: #f3edf1; margin: 0 0 0.5rem 0;">benmaverick0426</h3>
-          <div style="font-size: 1.35rem; font-weight: 900; color: #fb923c;">NT$ 2,300</div>
-        </div>
-
-        <!-- 第 3 名 (銅牌) -->
-        <div class="podium-card" style="background: rgba(255, 255, 255, 0.03); border: 2px solid rgba(205, 127, 50, 0.4); border-radius: 20px; padding: 2rem 1rem; text-align: center; backdrop-filter: blur(10px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); transform: translateY(10px);">
-          <div style="font-size: 1.5rem; font-weight: 900; color: #cd7f32; margin-bottom: 1rem;">🥉 3rd</div>
-          <div style="width: 80px; height: 80px; margin: 0 auto 1rem auto; border-radius: 50%; overflow: hidden; border: 3px solid #cd7f32; box-shadow: 0 0 15px rgba(205,127,50,0.3);">
-            <img src="https://mc-heads.net/avatar/saiyng/80" alt="saiyng 頭像" style="width: 100%; height: 100%; object-fit: cover;">
-          </div>
-          <h3 style="font-size: 1.1rem; font-weight: 700; color: #f3edf1; margin: 0 0 0.5rem 0;">saiyng</h3>
-          <div style="font-size: 1.15rem; font-weight: 800; color: #fb923c;">NT$ 2,300</div>
-        </div>
-
+      <div class="podium-grid" data-top-podium>
+        <!-- 動態載入前三名贊助者 -->
       </div>
     </section>
 
   </main>
 
-  <footer class="site-footer" style="text-align: center; padding: 2rem 1rem;">
+      <footer class="site-footer" style="text-align: center; padding: 2rem 1rem;">
     <p>Minecraft is a trademark of Mojang Studios. This server is not affiliated with Mojang or Microsoft.</p>
   </footer>
 
-  <script src="script.js?v=20260804"></script>
+  <div class="copy-toast" role="status" aria-live="polite" data-toast></div>
+  <script src="script.js?v=20260804-announcements6"></script>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const container = document.querySelector('[data-top-podium]');
+      if (!container) return;
+
+      try {
+        const res = await fetch('podium-sponsors.json?v=' + Date.now());
+        const sponsors = await res.json();
+        if (!Array.isArray(sponsors) || sponsors.length === 0) {
+          container.innerHTML = '<p style="grid-column: span 3; text-align: center; color: var(--muted);">目前尚無贊助記錄</p>';
+          return;
+        }
+
+        // Sort descending by amount
+        sponsors.sort((a, b) => b.amount - a.amount);
+        const top3 = sponsors.slice(0, 3);
+
+        container.innerHTML = top3.map((s, idx) => {
+          const rank = idx + 1;
+          const mcId = s.minecraftId || s.name || 'Steve';
+          const avatarUrl = `https://mc-heads.net/avatar/${encodeURIComponent(mcId)}/100`;
+          
+          return `
+            <div class="podium-card rank-${rank}">
+              <div class="podium-rank-badge">NO. ${rank}</div>
+              <div class="podium-avatar">
+                <img src="${avatarUrl}" alt="${s.name}" onerror="this.src='https://mc-heads.net/avatar/Steve/100'">
+              </div>
+              <div class="podium-name">${s.name}</div>
+              <div class="podium-amount">NT$ ${s.amount.toLocaleString()}</div>
+            </div>
+          `;
+        }).join('');
+      } catch (err) {
+        console.error('Failed to load sponsors podium:', err);
+        container.innerHTML = '<p style="grid-column: span 3; text-align: center; color: var(--muted);">排行榜載入中...</p>';
+      }
+    });
+  </script>
+
 </body>
 </html>
