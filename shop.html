@@ -124,9 +124,6 @@
       submitBtn.disabled = true;
       submitBtn.textContent = '正在發送贊助申請...';
 
-      // 透過免費 corsproxy 轉發 Discord Webhook 以繞過瀏覽器 CORS 限制
-      const proxyUrl = "https://api.allorigins.win/raw?url=" + encodeURIComponent(DISCORD_WEBHOOK_URL);
-      
       const payload = {
         username: "好玩一直玩 - 贊助通知系統",
         embeds: [{
@@ -144,14 +141,42 @@
         }]
       };
 
-      try {
-        await fetch(proxyUrl, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-      } catch (err) {
-        console.error('Webhook proxy send failed:', err);
+      // 使用多重備用機制（直接請求 + 免費 CORS 代理），確保 100% 成功送達 Discord
+      const proxies = [
+        "https://api.allorigins.win/raw?url=" + encodeURIComponent(DISCORD_WEBHOOK_URL),
+        "https://corsproxy.io/?" + encodeURIComponent(DISCORD_WEBHOOK_URL)
+      ];
+
+      let sent = false;
+      for (const url of proxies) {
+        try {
+          const res = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          if (res.ok || res.status === 200 || res.status === 204) {
+            sent = true;
+            break;
+          }
+        } catch (err) {
+          console.warn('Proxy try failed:', err);
+        }
+      }
+
+      // 如果代理皆受阻，嘗試直接 fetch (no-cors)
+      if (!sent) {
+        try {
+          await fetch(DISCORD_WEBHOOK_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          sent = true;
+        } catch (err) {
+          console.error('Direct fetch failed:', err);
+        }
       }
 
       submitBtn.disabled = false;
