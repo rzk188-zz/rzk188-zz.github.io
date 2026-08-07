@@ -1,90 +1,33 @@
+/* =========================
+   HAOWAN SERVER MAIN STYLE
+========================= */
+
+
 *{
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+html{
+    scroll-behavior:smooth;
 }
 
 
 body{
 
-margin:0;
+    font-family:
+    "Segoe UI",
+    "Microsoft JhengHei",
+    sans-serif;
 
-font-family:
--apple-system,
-BlinkMacSystemFont,
-"Segoe UI",
-Roboto,
-Arial;
+    background:
+    #050816;
 
+    color:white;
 
-background:
-linear-gradient(
-135deg,
-#0f172a,
-#162447
-);
-
-
-color:white;
-
-min-height:100vh;
-
-}
-
-
-
-.container{
-
-max-width:900px;
-
-margin:auto;
-
-padding:60px 20px;
-
-}
-
-
-
-
-header{
-
-text-align:center;
-
-margin-bottom:60px;
-
-}
-
-
-
-
-.avatar{
-
-width:160px;
-
-height:160px;
-
-border-radius:50%;
-
-margin:auto;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-
-font-size:70px;
-
-
-background:
-rgba(255,255,255,0.08);
-
-
-border:
-3px solid #00ff99;
-
-
-backdrop-filter:
-blur(10px);
+    overflow-x:hidden;
 
 }
 
@@ -92,83 +35,430 @@ blur(10px);
 
 
 
-h1{
+/* =========================
+        NAVBAR
+========================= */
 
-font-size:3em;
 
-color:#00ff99;
+nav{
+
+    position:fixed;
+
+    top:0;
+
+    width:100%;
+
+    height:75px;
+
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+
+    padding:0 8%;
+
+
+    background:
+
+    rgba(5,8,22,0.65);
+
+
+    backdrop-filter:
+
+    blur(15px);
+
+
+    border-bottom:
+
+    1px solid
+
+    rgba(255,255,255,0.1);
+
+
+    z-index:999;
+
 
 }
 
 
 
-.tagline{
+.logo{
 
-color:#aaa;
+    font-size:30px;
 
-font-size:1.2em;
-
-}
+    font-weight:900;
 
 
+    color:#00ff99;
 
 
-.status{
-
-
-margin:30px auto;
-
-padding:25px;
-
-
-background:
-rgba(255,255,255,.08);
-
-
-border-radius:20px;
-
-
-backdrop-filter:
-blur(15px);
+    letter-spacing:3px;
 
 
 }
 
 
 
-#status{
+.menu{
 
-font-size:1.5em;
+    display:flex;
 
-color:#00ff99;
+    gap:30px;
 
 }
 
 
+
+.menu a{
+
+    color:white;
+
+    text-decoration:none;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.menu a:hover{
+
+    color:#00ff99;
+
+}
+
+
+
+
+
+/* =========================
+        HERO
+========================= */
+
+
+.hero{
+
+
+    min-height:100vh;
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    text-align:center;
+
+
+
+    background:
+
+
+    linear-gradient(
+
+    rgba(0,0,0,.55),
+
+    rgba(0,0,0,.8)
+
+    ),
+
+
+    url("../assets/images/background.jpg");
+
+
+    background-size:cover;
+
+
+    background-position:center;
+
+
+
+}
+
+
+
+.hero-content{
+
+
+    margin-top:50px;
+
+
+}
+
+
+
+
+.server-logo{
+
+
+    width:180px;
+
+    height:180px;
+
+
+    object-fit:contain;
+
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+.hero h1{
+
+
+    font-size:80px;
+
+
+    font-weight:900;
+
+
+    letter-spacing:10px;
+
+
+    color:#00ff99;
+
+
+}
+
+
+
+.hero h2{
+
+
+    font-size:30px;
+
+    color:#ddd;
+
+
+}
+
+
+
+
+.server-status{
+
+
+    margin:40px auto;
+
+
+    padding:30px;
+
+
+    width:350px;
+
+
+    background:
+
+
+    rgba(255,255,255,.08);
+
+
+    border-radius:20px;
+
+
+    backdrop-filter:
+
+    blur(20px);
+
+
+
+    border:
+
+    1px solid
+
+    rgba(255,255,255,.15);
+
+
+
+}
+
+
+
+
+#online-status{
+
+
+    font-size:25px;
+
+
+    color:#00ff99;
+
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+.player-count{
+
+
+    font-size:20px;
+
+
+}
+
+
+
+.ip{
+
+
+    font-size:25px;
+
+
+    letter-spacing:2px;
+
+
+    color:#aaa;
+
+
+}
+
+
+
+
+
+
+/* =========================
+        BUTTON
+========================= */
+
+
+.buttons{
+
+
+    margin-top:30px;
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    gap:20px;
+
+
+}
+
+
+
+.btn{
+
+
+    padding:
+
+    14px 35px;
+
+
+    border-radius:50px;
+
+
+    border:
+
+    2px solid #00ff99;
+
+
+    color:#00ff99;
+
+
+    text-decoration:none;
+
+
+    font-weight:bold;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.btn:hover{
+
+
+    background:#00ff99;
+
+
+    color:#001;
+
+
+    transform:
+
+    translateY(-5px);
+
+
+}
+
+
+
+.discord{
+
+
+    border-color:#5865F2;
+
+
+    color:#5865F2;
+
+
+}
+
+
+
+
+
+
+
+/* =========================
+        SECTION
+========================= */
 
 
 .section{
 
 
-background:
-rgba(255,255,255,.08);
+    max-width:1200px;
 
 
-border-radius:20px;
+    margin:auto;
 
 
-padding:30px;
+    padding:
+
+    100px 30px;
 
 
-margin-bottom:30px;
+
+}
 
 
-backdrop-filter:
-blur(15px);
 
 
-border:
-1px solid rgba(255,255,255,.15);
+.section h2{
+
+
+    text-align:center;
+
+
+    font-size:45px;
+
+
+    color:#00ff99;
+
+
+    margin-bottom:50px;
 
 
 }
@@ -177,111 +467,89 @@ border:
 
 
 
-h2{
-
-color:#00ff99;
-
-border-bottom:
-2px solid #00ff99;
 
 
-padding-bottom:10px;
-
-}
-
-
+/* =========================
+        CARDS
+========================= */
 
 
-.project{
+.cards{
 
 
-background:
-rgba(0,0,0,.25);
+    display:grid;
 
 
-padding:20px;
+    grid-template-columns:
+
+    repeat(4,1fr);
 
 
-border-radius:15px;
-
-
-margin-bottom:15px;
+    gap:25px;
 
 
 }
 
 
 
-
-.skills{
-
-
-display:flex;
-
-flex-wrap:wrap;
-
-gap:10px;
+.card{
 
 
-}
+    padding:35px;
 
 
+    background:
 
 
-.skill-tag{
+    rgba(255,255,255,.06);
 
 
-background:#064e3b;
+    border-radius:20px;
 
 
-padding:8px 18px;
+    border:
 
+    1px solid
 
-border-radius:30px;
-
-
-color:#00ff99;
-
-
-}
+    rgba(255,255,255,.1);
 
 
 
+    backdrop-filter:
 
-.links{
+    blur(15px);
 
 
-display:flex;
 
-justify-content:center;
-
-gap:20px;
+    transition:.3s;
 
 
 }
 
 
 
-.links a{
+.card:hover{
 
 
-color:#00ff99;
+    transform:
+
+    translateY(-15px);
 
 
-border:
-2px solid #00ff99;
+    border-color:#00ff99;
 
 
-padding:12px 25px;
+}
 
 
-border-radius:10px;
+
+.card h3{
 
 
-text-decoration:none;
+    color:#00ff99;
 
 
-transition:.3s;
+    margin-bottom:15px;
 
 
 }
@@ -289,27 +557,233 @@ transition:.3s;
 
 
 
-.links a:hover{
 
 
-background:#00ff99;
 
-color:#111;
+/* =========================
+        STATUS
+========================= */
+
+
+.status-box{
+
+
+    max-width:600px;
+
+
+    margin:auto;
+
+
+    padding:40px;
+
+
+    text-align:center;
+
+
+
+    background:
+
+    rgba(255,255,255,.08);
+
+
+
+    border-radius:25px;
+
+
+    backdrop-filter:
+
+    blur(20px);
 
 
 }
 
 
+
+.status-box h3{
+
+
+    font-size:35px;
+
+
+    color:#00ff99;
+
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+
+
+
+/* =========================
+        NEWS
+========================= */
+
+
+.news{
+
+
+    padding:30px;
+
+
+    margin-bottom:20px;
+
+
+    background:
+
+    rgba(255,255,255,.06);
+
+
+
+    border-radius:20px;
+
+
+
+}
+
+
+
+.news h3{
+
+
+    color:#00ff99;
+
+
+}
+
+
+
+
+
+
+
+/* =========================
+        JOIN
+========================= */
+
+
+.join-box{
+
+
+    text-align:center;
+
+
+    background:
+
+    rgba(255,255,255,.08);
+
+
+    padding:40px;
+
+
+    border-radius:20px;
+
+
+}
+
+
+
+.join-box button{
+
+
+    margin-top:20px;
+
+
+    padding:12px 30px;
+
+
+    border:none;
+
+
+    border-radius:30px;
+
+
+    cursor:pointer;
+
+
+    background:#00ff99;
+
+
+}
+
+
+
+
+
+
+
+/* =========================
+        FOOTER
+========================= */
 
 
 footer{
 
 
-text-align:center;
+    padding:40px;
 
-color:#777;
 
-margin-top:50px;
+    text-align:center;
+
+
+    color:#777;
+
+
+}
+
+
+
+
+
+
+
+/* =========================
+        MOBILE
+========================= */
+
+
+@media(max-width:800px){
+
+
+.menu{
+
+display:none;
+
+}
+
+
+
+.hero h1{
+
+font-size:45px;
+
+}
+
+
+
+.cards{
+
+
+grid-template-columns:
+
+1fr;
+
+
+}
+
+
+
+.section h2{
+
+
+font-size:35px;
+
+
+}
+
 
 
 }
