@@ -102,7 +102,7 @@
     <div id="youtube-audio-container" style="display:none;"></div>
     <button id="music-toggle-btn" class="music-btn" type="button" aria-label="播放/暫停音樂" title="播放 / 暫停音樂">
       <svg class="music-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-      <span class="music-status-text">音樂</span>
+      <span class="music-status-text">暫停音樂</span>
     </button>
     <div class="music-volume-panel" id="music-volume-panel">
       <label for="music-volume-slider">音量</label>
@@ -171,7 +171,7 @@
   <script>
     // YouTube IFrame API Setup
     let ytPlayer;
-    let isPlaying = false;
+    let isPlaying = true;
 
     function onYouTubeIframeAPIReady() {
       ytPlayer = new YT.Player('youtube-audio-container', {
@@ -179,7 +179,7 @@
         width: '0',
         videoId: 'cAk9Jq0Qxn4',
         playerVars: {
-          'autoplay': 0,
+          'autoplay': 1,
           'loop': 1,
           'playlist': 'cAk9Jq0Qxn4',
           'controls': 0
@@ -187,6 +187,8 @@
         events: {
           'onReady': (event) => {
             event.target.setVolume(50);
+            event.target.playVideo();
+            isPlaying = true;
           }
         }
       });
