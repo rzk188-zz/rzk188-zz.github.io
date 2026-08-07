@@ -240,7 +240,7 @@ function renderHeroSupporterEmpty(container) {
 }
 
 function renderSponsors(records) {
-  const sponsors = records.map(normalizeSponsor).filter((record) => record.amount > 0);
+  const sponsors = records.map(normalizeSponsor).filter((record) => record.amount > 0).reverse();
 
   const heroList = document.querySelector("[data-hero-supporter-list]");
   if (heroList) {
