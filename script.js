@@ -118,19 +118,24 @@ function renderPlayerStatus(status) {
 }
 
 async function fetchPlayerStatus() {
-  const configuredEndpoint = body.dataset.playerApi || "/api/player-history";
-  const endpoint = ["127.0.0.1", "localhost"].includes(location.hostname)
-    ? "https://www.selin.tw/api/player-history"
-    : configuredEndpoint;
   try {
-    const response = await fetch(`${endpoint}?range=1h`, {
-      headers: { Accept: "application/json" },
-      cache: "no-store",
-    });
-    if (!response.ok) throw new Error(`status ${response.status}`);
-    const payload = await response.json();
-    renderPlayerStatus(payload.status);
-  } catch {
+    const res = await fetch('https://api.mcsrvstat.us/3/haowan.pro');
+    const data = await res.json();
+    if (data.online) {
+      renderPlayerStatus({ available: true, online: true, players: data.players.online });
+    } else {
+      renderPlayerStatus({ available: true, online: false, players: 0 });
+    }
+  } catch (e) {
+    // fallback or try basic
+    try {
+      const res2 = await fetch('https://api.minetools.eu/ping/haowan.pro');
+      const data2 = await res2.json();
+      if (data2.players) {
+        renderPlayerStatus({ available: true, online: true, players: data2.players.online });
+        return;
+      }
+    } catch (e2) {}
     renderPlayerStatus(null);
   }
 }
