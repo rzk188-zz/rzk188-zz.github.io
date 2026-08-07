@@ -98,8 +98,11 @@
       const method = document.querySelector('input[name="payment-method"]:checked').value;
       const message = document.getElementById('donate-message').value;
 
-      const methodName = method === 'convenience' ? '超商繳費' : '銀行轉帳';
-      alert(`感謝您的支持！\n\n贊助玩家：${mcId}\n贊助金額：NT$ ${amount}\n贊助方式：${methodName}\n\n請前往 Discord 社群聯繫管理員完成後續繳費手續！`);
+      if (method === 'transfer') {
+        alert(`感謝您的支持！\n\n贊助玩家：${mcId}\n贊助金額：NT$ ${amount}\n贊助方式：銀行轉帳\n\n【轉帳資訊】\n銀行代號：008\n轉帳帳號：800200727070\n\n完成轉帳後請截圖並至 Discord 社群聯繫管理員確認！`);
+      } else {
+        alert(`感謝您的支持！\n\n贊助玩家：${mcId}\n贊助金額：NT$ ${amount}\n贊助方式：超商繳費\n\n請前往 Discord 社群聯繫管理員取得超商繳費代碼！`);
+      }
       document.getElementById('donate-form').reset();
     }
   </script>
