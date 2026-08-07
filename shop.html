@@ -71,6 +71,21 @@
           </div>
         </div>
 
+        <!-- 隱私勾選選項 (公開贊助ID / 公開贊助金額) -->
+        <div class="form-group" style="display: flex; flex-direction: column; gap: 0.75rem; padding: 1rem; background: rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
+          <label style="font-weight: 700; color: #f3edf1; font-size: 0.9rem; margin-bottom: 0.25rem;">隱私與顯示設定</label>
+          <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: #f3edf1; font-size: 0.9rem;">
+              <input type="checkbox" id="public-id" checked style="accent-color: #fb923c; width: 16px; height: 16px;">
+              公開贊助 ID
+            </label>
+            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: #f3edf1; font-size: 0.9rem;">
+              <input type="checkbox" id="public-amount" checked style="accent-color: #fb923c; width: 16px; height: 16px;">
+              公開贊助金額
+            </label>
+          </div>
+        </div>
+
         <!-- 贊助留言 -->
         <div class="form-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
           <label for="donate-message" style="font-weight: 700; color: #f3edf1; font-size: 0.95rem;">贊助留言 <small style="color: #c8bdc4; font-weight: normal;">(選填)</small></label>
@@ -96,12 +111,18 @@
       const amount = document.getElementById('donate-amount').value;
       const mcId = document.getElementById('donate-id').value;
       const method = document.querySelector('input[name="payment-method"]:checked').value;
+      const isPublicId = document.getElementById('public-id').checked;
+      const isPublicAmount = document.getElementById('public-amount').checked;
       const message = document.getElementById('donate-message').value;
 
+      const methodName = method === 'transfer' ? '銀行轉帳' : '超商繳費';
+      const displayId = isPublicId ? mcId : '匿名';
+      const displayAmount = isPublicAmount ? `NT$ ${amount}` : '隱藏金額';
+
       if (method === 'transfer') {
-        alert(`感謝您的支持！\n\n贊助玩家：${mcId}\n贊助金額：NT$ ${amount}\n贊助方式：銀行轉帳\n\n【轉帳資訊】\n銀行代號：008\n轉帳帳號：800200727070\n\n完成轉帳後請截圖並至 Discord 社群聯繫管理員確認！`);
+        alert(`感謝您的支持！\n\n贊助玩家：${displayId} (${mcId})\n贊助金額：${displayAmount}\n贊助方式：銀行轉帳\n公開設定：[ID: ${isPublicId ? '公開' : '不公開'} | 金額: ${isPublicAmount ? '公開' : '不公開'}]\n\n【轉帳資訊】\n銀行代號：008\n轉帳帳號：800200727070\n\n完成轉帳後請截圖並至 Discord 社群聯繫管理員確認！`);
       } else {
-        alert(`感謝您的支持！\n\n贊助玩家：${mcId}\n贊助金額：NT$ ${amount}\n贊助方式：超商繳費\n\n請前往 Discord 社群聯繫管理員取得超商繳費代碼！`);
+        alert(`感謝您的支持！\n\n贊助玩家：${displayId} (${mcId})\n贊助金額：${displayAmount}\n贊助方式：超商繳費\n公開設定：[ID: ${isPublicId ? '公開' : '不公開'} | 金額: ${isPublicAmount ? '公開' : '不公開'}]\n\n請前往 Discord 社群聯繫管理員取得超商繳費代碼！`);
       }
       document.getElementById('donate-form').reset();
     }
