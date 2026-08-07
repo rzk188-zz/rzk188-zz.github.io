@@ -260,7 +260,7 @@ function renderSponsors(records) {
 }
 
 async function fetchSponsorData() {
-  const endpoints = ["/sponsors.json", body.dataset.sponsorApi || "/api/sponsors"];
+  const endpoints = [`/sponsors.json?v=${Date.now()}`, body.dataset.sponsorApi || "/api/sponsors"];
 
   for (const endpoint of endpoints) {
     try {
