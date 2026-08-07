@@ -6,5 +6,21 @@
     "currency": "TWD",
     "hideAmount": false,
     "message": "我喜歡這個伺服器"
+  },
+  {
+    "name": "匿名玩家",
+    "minecraftId": "Steve",
+    "amount": 2000,
+    "currency": "TWD",
+    "hideAmount": false,
+    "message": ""
+  },
+  {
+    "name": "匿名玩家",
+    "minecraftId": "Alex",
+    "amount": 1200,
+    "currency": "TWD",
+    "hideAmount": false,
+    "message": "最喜歡粘液科技了"
   }
 ]
