@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1a181d">
+  <title>遊玩教學｜星鈴町伺服器</title>
+  <meta name="description" content="星鈴町 Minecraft 伺服器的新手、領地告示牌、生活技能、每日任務、遊戲機制、經濟與小遊戲教學。">
+  <meta property="og:title" content="遊玩教學｜星鈴町伺服器">
+  <meta property="og:description" content="從第一次進服到安頓生活，快速找到星鈴町的玩法與常用指令。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/xingling-world-20260716.webp?v=20260804-imagefix2">
+  <link rel="icon" href="/server-icon-v2.webp?v=20260804-imagefix2" type="image/webp">
+  <link rel="stylesheet" href="/styles.css?v=20260804-menufix2">
+  <link rel="stylesheet" href="/commands.css?v=20260804-viptable1">
+  <link rel="stylesheet" href="/theme.css?v=20260804-menufix2">
+</head>
+<body class="guide-page">
+  <a class="skip-link" href="#guide-content">前往主要內容</a>
+
+  <header class="site-header guide-header scrolled" data-header>
+    <a class="brand" href="/" aria-label="回到星鈴町首頁">
+      <img src="/server-icon-v2.webp?v=20260804-imagefix2" alt="" width="56" height="56">
+      <span><strong>星鈴町</strong><small>STAR BELL TOWN</small></span>
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="主要導覽" data-nav>
+      <a href="/#features">伺服器特色</a>
+      <a href="/#systems">自製玩法</a>
+      <a href="#guide-content" aria-current="page">遊玩教學</a>
+      <a href="/player.html">在線紀錄</a>
+      <a href="/rules.html">玩家守則</a>
+      <a href="/#community">町內動態</a>
+      <a href="/#join">加入伺服器</a>
+    </nav>
+
+    <a class="header-discord" href="https://discord.gg/mQWhSPuZZD" target="_blank" rel="noopener noreferrer">Discord 社群</a>
+    <button class="menu-button" type="button" aria-label="開啟選單" aria-controls="main-nav" aria-expanded="false" data-menu-button>
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main id="guide-content">
+    <section class="guide-hero" aria-labelledby="guide-title">
+      <img src="/xingling-world-20260716.webp?v=20260804-imagefix2" alt="星鈴町櫻花城鎮 Minecraft 遊戲實景" width="2048" height="1152">
+      <div class="guide-hero-shade" aria-hidden="true"></div>
+      <div class="guide-hero-content">
+        <p>STAR BELL TOWN GUIDE</p>
+        <h1 id="guide-title">星鈴町遊玩指南</h1>
+        <span>從踏進町落的第一刻，到安頓自己的日常。</span>
+      </div>
+    </section>
+
+    <section class="guide-tools" aria-label="教學搜尋">
+      <label class="guide-search">
+        <span>搜尋玩法或指令</span>
+        <input type="search" placeholder="例如：領地告示牌、生活技能、技藝流派、每日任務" autocomplete="off" data-guide-search>
+      </label>
+      <div class="guide-server-brief">
+        <p><span>Java</span><button type="button" data-copy="selin.tw">selin.tw</button></p>
+        <p><span>基岩版</span><button type="button" data-copy="be.selin.tw:18492">be.selin.tw:18492</button></p>
+      </div>
+      <p class="guide-result" aria-live="polite" data-guide-result>顯示全部教學</p>
+    </section>
+
+    <div class="guide-layout">
+      <aside class="guide-sidebar" aria-label="教學章節">
+        <p>遊玩目錄</p>
+        <nav>
+          <a href="#start">初次進服</a>
+          <a href="#land">領地與傳送</a>
+          <a href="#daily">每日任務與活動</a>
+          <a href="#lifeskills">生活技能</a>
+          <a href="#mechanics">遊戲機制調整</a>
+          <a href="#resident">一般居民功能</a>
+          <a href="#convenience">便捷功能</a>
+          <a href="#vip">VIP 身分功能</a>
+          <a href="#economy">經濟與交易</a>
+          <a href="#social">社交與外觀</a>
+          <a href="#games">小遊戲</a>
+        </nav>
+        <a class="sidebar-discord" href="https://discord.gg/mQWhSPuZZD" target="_blank" rel="noopener noreferrer">仍有疑問？到 Discord 詢問</a>
+      </aside>
+
+      <div class="guide-main">
+        <section class="guide-section" id="start" data-guide-section data-keywords="新手 初次 加入 進服 主選單 出生點 簽到 綁定 Discord 隨機傳送">
+          <header class="guide-section-heading">
+            <p>01 / GETTING STARTED</p>
+            <h2>初次進服</h2>
+            <span>先打開主選單，再從一處喜歡的風景開始生活。</span>
+          </header>
+
+          <article class="guide-note guide-note-primary" data-guide-item>
+            <h3>第一次上線建議順序</h3>
+            <ol>
+              <li>輸入 <code>/m</code> 打開主選單，認識町內主要功能。</li>
+              <li>使用 <code>/discord link</code> 綁定 Discord，避免錯過公告與活動。</li>
+              <li>完成每日簽到，再用 <code>/rtp</code> 前往隨機地點尋找住所。</li>
+              <li>決定落腳處後先建立領地，重要物品與建築才有完整保護。</li>
+            </ol>
+            <p>首次加入會收到石製工具、麵包、火把、床，以及三件協助安家的町內工具。</p>
+          </article>
+
+          <div class="starter-kit-grid" aria-label="新手物資使用方式">
+            <article data-guide-item>
+              <span>01</span><h3>星鈴領地鋤</h3>
+              <p>Java 版以左鍵、右鍵選取兩個對角；基岩版以點擊、長按選取。確認範圍後輸入 <code>/res create &lt;領地名&gt;</code> 建立領地。</p>
+            </article>
+            <article data-guide-item>
+              <span>02</span><h3>便捷選單時鐘</h3>
+              <p>手持時鐘按右鍵即可開啟常用功能；也能蹲下並按交換副手鍵，Java 版預設為 <kbd>F</kbd>。</p>
+            </article>
+            <article data-guide-item>
+              <span>03</span><h3>新手領地箱</h3>
+              <p>放在沒有領地的位置，會免費建立一小塊新手領地。放置前請先選好地點，拆除箱子不會刪除領地或退還。</p>
+            </article>
+          </div>
+
+          <div class="command-list" aria-label="新手常用指令">
+            <article class="command-row" data-guide-item><code>/m</code><div><h3>主選單</h3><p>開啟星鈴町主要功能入口，簽到、傳送、外觀與各種玩法都能從這裡找到。</p></div></article>
+            <article class="command-row" data-guide-item><code>/play</code><div><h3>便捷功能選單</h3><p>集中開啟夜視、隨身背包、撿取過濾、區塊工具與其他生活功能。</p></div></article>
+            <article class="command-row" data-guide-item><code>/rtp</code><div><h3>隨機傳送</h3><p>前往適合探索與安家的隨機地點。抵達後請先確認環境，再建立領地。</p></div></article>
+            <article class="command-row" data-guide-item><code>/spawn</code><div><h3>返回重生城</h3><p>回到星鈴町主要城鎮，尋找 NPC、活動入口與其他居民。</p></div></article>
+            <article class="command-row" data-guide-item><code>/signin gui</code><div><h3>每日簽到</h3><p>開啟簽到介面並領取當日獎勵。</p></div></article>
+            <article class="command-row" data-guide-item><code>/discord link</code><div><h3>綁定 Discord</h3><p>依照畫面提示完成帳號連結，讓遊戲身分與町內社群保持同步。</p></div></article>
+          </div>
+        </section>
+
+        <section class="guide-section" id="land" data-guide-section data-keywords="領地 保護 木鋤 傳送 告示牌 領地傳送 res sign 石碑 waypoint 安家">
+          <header class="guide-section-heading">
+            <p>02 / HOME &amp; WAYSTONES</p>
+            <h2>領地與傳送</h2>
+            <span>把重要的家好好圈起來，也讓往返旅程變得從容。</span>
+          </header>
+
+          <article class="guide-note" data-guide-item>
+            <h3>建立第一個領地</h3>
+            <ol>
+              <li>手持木鋤，分別點選範圍的兩個對角。</li>
+              <li>輸入 <code>/res select cost</code> 查看建立費用。</li>
+              <li>確認範圍後輸入 <code>/res create &lt;領地名稱&gt;</code>。</li>
+            </ol>
+            <p>一般玩家目前最多可建立 5 個領地，單邊最大 256 格，建立費用為每格 6 遊戲幣；不同身分與活動期間可能有所調整。</p>
+          </article>
+
+          <div class="command-list" aria-label="領地指令">
+            <article class="command-row" data-guide-item><code>/reshelp</code><div><h3>領地教學</h3><p>在遊戲內開啟領地說明選單。</p></div></article>
+            <article class="command-row" data-guide-item><code>/res info</code><div><h3>查看領地資訊</h3><p>站在領地內查看範圍、擁有者與目前設定。</p></div></article>
+            <article class="command-row" data-guide-item><code>/res list</code><div><h3>列出自己的領地</h3><p>查看目前擁有的所有領地。</p></div></article>
+            <article class="command-row" data-guide-item><code>/res set</code><div><h3>調整領地權限</h3><p>開啟旗標設定，控制建造、容器、互動與其他行為。</p></div></article>
+            <article class="command-row" data-guide-item><code>/res padd &lt;領地&gt; &lt;玩家&gt;</code><div><h3>加入信任玩家</h3><p>讓指定居民在這塊領地擁有一般使用權限。</p></div></article>
+            <article class="command-row" data-guide-item><code>/res pdel &lt;領地&gt; &lt;玩家&gt;</code><div><h3>移除信任玩家</h3><p>收回指定居民在領地內的權限。</p></div></article>
+            <article class="command-row" data-guide-item><code>/res tp &lt;領地&gt;</code><div><h3>傳送至領地</h3><p>前往自己或已獲准進入的領地。</p></div></article>
+            <article class="command-row" data-guide-item><code>/res rename &lt;舊名&gt; &lt;新名&gt;</code><div><h3>重新命名</h3><p>替已建立的領地更換名稱。</p></div></article>
+          </div>
+
+          <article class="residence-sign-guide" data-guide-item data-keywords="領地告示牌 領地傳送牌 residence sign">
+            <div class="residence-sign-copy">
+              <p>RESIDENCE SIGN</p>
+              <h3>建立領地傳送告示牌</h3>
+              <ol>
+                <li>先確認要前往的領地已經存在，並記下完整領地名稱。</li>
+                <li>放置告示牌，第一行輸入 <code>領地</code>，第二行輸入領地名稱。</li>
+                <li>完成編輯後，告示牌會自動轉換成領地傳送格式。</li>
+                <li>往後只要蹲下並對著告示牌按右鍵，就會執行領地傳送。</li>
+              </ol>
+              <p class="residence-sign-tip">第一行也接受 <code>res</code> 或 <code>[res]</code>；第二行必須是已存在的領地名稱，否則不會建立。</p>
+            </div>
+            <div class="sign-example" aria-label="領地傳送告示牌填寫範例">
+              <p>填寫範例</p>
+              <div class="minecraft-sign" aria-hidden="true">
+                <span>領地</span>
+                <span>櫻花小屋</span>
+                <span>&nbsp;</span>
+                <span>&nbsp;</span>
+              </div>
+              <small>完成後會顯示「領地傳送」與「蹲下右鍵傳送」</small>
+            </div>
+          </article>
+
+          <article class="waystone-guide" data-guide-item>
+            <div>
+              <p>WAYSTONE</p>
+              <h3>傳送石碑</h3>
+              <span>將平滑石頭放在下方，再把磁石放在正上方；對著磁石按右鍵即可建立並命名。建立後，右鍵指南針或輸入 <code>/warpmenu</code>，便能查看已開啟的旅途節點。</span>
+              <ul><li>一般玩家目前最多建立 5 座</li><li>傳送前有 3 秒準備時間</li><li>目前不收取傳送費用</li></ul>
+            </div>
+            <div class="waystone-stack" aria-label="傳送石碑結構：上方磁石，下方平滑石頭">
+              <span>磁石</span><span>平滑石頭</span>
+              <small>右鍵上方磁石建立</small>
+            </div>
+          </article>
+        </section>
+
+        <section class="guide-section" id="daily" data-guide-section data-keywords="每日任務 委託 活動 簽到 里程碑 skip shop quest">
+          <header class="guide-section-heading">
+            <p>03 / DAILY LIFE</p>
+            <h2>每日任務與活動</h2>
+            <span>不必匆忙追趕進度，每天挑一點想做的事，慢慢收藏町內時光。</span>
+          </header>
+
+          <div class="feature-guide-grid">
+            <article class="feature-guide" data-guide-item>
+              <span>DAILY QUEST</span><h3>每日委託</h3>
+              <p>輸入 <code>/quest</code> 開啟個人委託。每日 00:00 更新 20 項內容，一次追蹤一項；完成後需等待 3 分鐘才會接續下一項。</p>
+              <dl><div><dt>每日免費跳過</dt><dd>1 次</dd></div><div><dt>里程碑</dt><dd>5 / 10 / 15 / 20</dd></div></dl>
+            </article>
+            <article class="feature-guide" data-guide-item>
+              <span>SEASONAL EVENT</span><h3>期間活動</h3>
+              <p>主題活動會在重生城與 Discord 公告開放。依照活動 NPC 的介面提交物資、完成指定目標，即可累積活動貨幣與限定珍藏。</p>
+              <a href="https://discord.gg/mQWhSPuZZD" target="_blank" rel="noopener noreferrer">查看最新活動公告</a>
+            </article>
+          </div>
+
+          <div class="command-list" aria-label="每日任務指令">
+            <article class="command-row" data-guide-item><code>/quest</code><div><h3>開啟每日委託</h3><p>查看目前任務、完成進度與當日里程碑。</p></div></article>
+            <article class="command-row" data-guide-item><code>/quest skip</code><div><h3>跳過目前委託</h3><p>每日第一次免費，之後需使用委託跳過券。</p></div></article>
+            <article class="command-row" data-guide-item><code>/quest shop</code><div><h3>委託點數商店</h3><p>查看可使用任務點數兌換的內容。</p></div></article>
+            <article class="command-row" data-guide-item><code>/quest top</code><div><h3>委託排行</h3><p>查看町內居民的任務完成紀錄。</p></div></article>
+          </div>
+        </section>
+
+        <section class="guide-section" id="lifeskills" data-guide-section data-keywords="生活技能 採礦 伐木 農耕 挖掘 釣魚 熔煉 製作 附魔 修繕 身法 武技 射藝 專注 技藝 流派 圖鑑 秘技 銘刻 秘紋 旅程 職業 傳承 百工紀元">
+          <header class="guide-section-heading">
+            <p>04 / LIFE SKILLS</p>
+            <h2>生活技能</h2>
+            <span>挖一塊礦、收一輪作物，都會留下屬於你的生活足跡。不必趕進度，照自己喜歡的方式慢慢成長。</span>
+          </header>
+
+          <article class="guide-note guide-note-primary" data-guide-item>
+            <h3>從 <code>/skills</code> 開始</h3>
+            <ol>
+              <li>輸入 <code>/skills</code> 打開生活技能總覽，查看等級、經驗與已解鎖的玩法。</li>
+              <li>照常進行採集、製作、移動或 PvE 戰鬥，有效行為會自動累積對應技能經驗。</li>
+              <li>點開想培養的技能，畫面會顯示下一個解鎖目標、觸發方式與目前進度。</li>
+              <li>升級不會改變原版掉落；每一份收穫與裝備，仍靠你自己的旅程完成。</li>
+            </ol>
+          </article>
+
+          <div class="skill-catalog-grid" aria-label="十二項生活技能">
+            <article class="skill-card" data-guide-item data-skill-group="gather"><span>MINING</span><h3>採礦</h3><p>開採天然生成的岩層與礦石，越多元的礦脈探索，越能完成圖鑑。</p></article>
+            <article class="skill-card" data-guide-item data-skill-group="gather"><span>WOODCUTTING</span><h3>伐木</h3><p>砍伐天然原木與菌柄，連續採集或尋找不同樹種都能培養技藝。</p></article>
+            <article class="skill-card" data-guide-item data-skill-group="gather"><span>FARMING</span><h3>農耕</h3><p>收成成熟作物與自然農產，輪流照顧不同田區可累積更完整的紀錄。</p></article>
+            <article class="skill-card" data-guide-item data-skill-group="gather"><span>EXCAVATION</span><h3>挖掘</h3><p>挖掘泥土、砂土、黏土與雪層，從不同地層留下探勘足跡。</p></article>
+            <article class="skill-card" data-guide-item data-skill-group="gather"><span>FISHING</span><h3>釣魚</h3><p>使用釣竿取得原版漁獲與寶藏，每一種新收穫都會補上圖鑑的一角。</p></article>
+            <article class="skill-card" data-guide-item data-skill-group="craft"><span>SMELTING</span><h3>熔煉</h3><p>從熔爐、高爐或煙燻爐親手取出成品，不同配方會留下不同紀錄。</p></article>
+            <article class="skill-card" data-guide-item data-skill-group="craft"><span>CRAFTING</span><h3>製作</h3><p>親手完成原版物品製作；輪替不同配方，比反覆製作同一項更能發掘百工巧思。</p></article>
+            <article class="skill-card" data-guide-item data-skill-group="craft"><span>ENCHANTING</span><h3>附魔</h3><p>使用附魔台為不同裝備附魔，精進後可在秘技期間降低實際等級消耗。</p></article>
+            <article class="skill-card" data-guide-item data-skill-group="craft"><span>REPAIR</span><h3>修繕</h3><p>透過經驗修補或鐵砧實際恢復裝備耐久，才會計入技能成長。</p></article>
+            <article class="skill-card" data-guide-item data-skill-group="motion"><span>AGILITY</span><h3>身法</h3><p>在線步行、衝刺、跳躍與成功閃避可累積經驗；飛行、鞘翅與載具不計入。</p></article>
+            <article class="skill-card" data-guide-item data-skill-group="combat"><span>COMBAT</span><h3>武技</h3><p>以完整蓄力的近戰攻擊對付敵對生物，實際命中與有效討伐才會計入。</p></article>
+            <article class="skill-card" data-guide-item data-skill-group="combat"><span>MARKSMANSHIP</span><h3>射藝</h3><p>以弓、弩或三叉戟命中敵對生物，合理的遠射距離會帶來溫和加成。</p></article>
+          </div>
+
+          <article class="life-progression" data-guide-item>
+            <header><p>GROWTH PATH</p><h3>從熟練到專精</h3><span>各項技能獨立成長，不會因為切換玩法而清除進度。</span></header>
+            <div class="life-milestones">
+              <div><strong>10</strong><span>技能專注</span><small>主動開啟一段專心時間，提高指定技能的有效經驗。</small></div>
+              <div><strong>15</strong><span>技藝流派</span><small>免費選擇「節奏流」或「探索流」，之後可隨時轉換。</small></div>
+              <div><strong>25</strong><span>技能印記</span><small>限時內完成同一技能的多種行為，點亮專屬成長效果。</small></div>
+              <div><strong>30</strong><span>傳承試煉</span><small>選擇恆心、博聞或淬煉之路，逐步取得傳承星。</small></div>
+              <div><strong>50</strong><span>技藝精通</span><small>節奏流可突破更高連續層數，探索流也會獲得更完整的突破。</small></div>
+              <div><strong>80+</strong><span>實戰認證</span><small>武技與射藝需兼顧敵種、兵器與成果，才能繼續突破上限。</small></div>
+            </div>
+          </article>
+
+          <div class="feature-guide-grid life-loop-grid">
+            <article class="feature-guide" data-guide-item>
+              <span>CODEX &amp; ABILITY</span><h3>圖鑑與主動秘技</h3>
+              <p>圖鑑會永久保存你接觸過的素材、配方、漁獲與行為。達到 5、15、30、60 項時，可在圖鑑頁領取一次性里程獎勵，並取得秘技能量。</p>
+              <p class="feature-guide-note">每項技能最多儲存 3 點能量，可在技能詳情或用 <code>/skills 秘技 &lt;技能&gt;</code> 施放。</p>
+            </article>
+            <article class="feature-guide" data-guide-item>
+              <span>JOURNEY &amp; PROFESSION</span><h3>旅程羅盤與生活職業</h3>
+              <p>旅程可從熟途精進、補足短板與尋新之旅中選擇，沒有截止時間。職業所另有七種生存職業，每次可接短程、標準或精進委託。</p>
+              <p class="feature-guide-note">職業可免費更換，放棄委託不會扣除金錢、經驗或旅程進度。</p>
+            </article>
+            <article class="feature-guide" data-guide-item>
+              <span>ENGRAVING &amp; RUNIC</span><h3>生活銘刻與異能秘紋</h3>
+              <p>先選定一項銘刻研究，以真實技能行為推進進度；完成後獲得帳號綁定的精研粉塵，再由自己決定要刻在哪件適用裝備上。</p>
+              <p class="feature-guide-note">銘刻與秘紋沒有失敗爆裝或隨機降階；需要的條件都會先在界面中列明。</p>
+            </article>
+            <article class="feature-guide" data-guide-item>
+              <span>TWELVE-WEEK CHRONICLE</span><h3>百工紀元</h3>
+              <p>每輪為期 12 週，每週解鎖修業、見聞、淬煉與行旅目標。晚加入或中間休息也能回頭完成已解鎖週次，不會因沒有連續上線受罰。</p>
+              <p class="feature-guide-note">紀元勳章保留作為歷程與完成度紀錄，不會永久疊加 PvP 傷害或經濟倍率。</p>
+            </article>
+          </div>
+
+          <article class="skill-fair-play" data-guide-item>
+            <strong>有效行為才會成長</strong>
+            <p>重複攻擊同一目標、在同一訓練區長時間刷怪，或反覆做單一來源，收益會逐步降低。玩家對戰預設不給予武技與射藝經驗；系統鼓勵的是正常生存、探索與真實 PvE 戰鬥。</p>
+          </article>
+
+          <div class="command-list" aria-label="生活技能常用指令">
+            <article class="command-row" data-guide-item><code>/skills</code><div><h3>生活技能總覽</h3><p>開啟技能主選單，查看等級、經驗、進度與各種進階玩法。</p></div></article>
+            <article class="command-row" data-guide-item><code>/skills 專注 &lt;技能&gt;</code><div><h3>開啟技能專注</h3><p>技能達 10 級後，主動開啟指定技能的限時經驗加成。</p></div></article>
+            <article class="command-row" data-guide-item><code>/skills 技藝 &lt;技能&gt;</code><div><h3>選擇技藝流派</h3><p>技能達 15 級後，在節奏流與探索流之間免費選擇或轉換。</p></div></article>
+            <article class="command-row" data-guide-item><code>/skills 圖鑑 [技能]</code><div><h3>查看永久圖鑑</h3><p>查看已發現、尚未完成的項目，並在里程碑達成後領取獎勵。</p></div></article>
+            <article class="command-row" data-guide-item><code>/skills 秘技 &lt;技能&gt;</code><div><h3>施放主動秘技</h3><p>消耗 1 點已儲存的能量，發動該技能的專屬能力。</p></div></article>
+            <article class="command-row" data-guide-item><code>/skills 旅程</code><div><h3>旅程羅盤</h3><p>查看並選擇這一輪的生活方向，完成後取得經驗與旅程紀錄。</p></div></article>
+            <article class="command-row" data-guide-item><code>/skills 職業</code><div><h3>生活職業所</h3><p>選擇七種生存職業之一，並接受適合當下時間的職業委託。</p></div></article>
+            <article class="command-row" data-guide-item><code>/skills 銘刻 [技能]</code><div><h3>銘刻研究與刻印</h3><p>選擇研究目標、查看粉塵與階級，或將已完成的效果刻上裝備。</p></div></article>
+            <article class="command-row" data-guide-item><code>/skills 秘紋 [技能]</code><div><h3>異能秘紋工坊</h3><p>進入進階工坊，鍛造、套用、切換或回收已解鎖的秘紋卷軸。</p></div></article>
+            <article class="command-row" data-guide-item><code>/skills 傳承 [技能]</code><div><h3>傳承試煉與星圖</h3><p>技能達 30 級後選擇試煉路線，領取傳承星並配置帳號星圖。</p></div></article>
+            <article class="command-row" data-guide-item><code>/skills 紀元</code><div><h3>百工紀元</h3><p>查看當前週次、已解鎖目標、領獎進度與本輪典藏紀錄。</p></div></article>
+            <article class="command-row" data-guide-item><code>/skills 排行 &lt;技能&gt; [頁數]</code><div><h3>技能排行</h3><p>查看指定生活技能的町內排行與玩家進度。</p></div></article>
+          </div>
+        </section>
+
+        <section class="guide-section" id="mechanics" data-guide-section data-keywords="遊戲機制 調整 礦車 紅石 生物 農場 核心 掉落物 礦物 電梯 傳送門 箱子 夜魅 視野 模擬距離 困難 漏斗 生物生成 TNT 複製 技術生存">
+          <header class="guide-section-heading">
+            <p>05 / SURVIVAL MECHANICS</p>
+            <h2>遊戲機制調整</h2>
+            <span>保留原版生存的熟悉手感，再把長期生活裡不順手的細節輕輕整理好。</span>
+          </header>
+
+          <div class="mechanic-list">
+            <article class="mechanic-item" data-guide-item><span>01</span><div><h3>自製核心與順暢生存</h3><p>伺服器核心針對多人世界與高負載場景持續調整，並搭配 AMD Ryzen 9 7900X 主機。居民可以安心規劃紅石裝置、生物農場與長期工程；若單一設施造成全服明顯負擔，管理團隊仍會協助一同改善。</p><p>爆炸仍採用原版計算，核心也不以降低生物 AI 或可見移動頻率換取效能；關服時會先妥善處理紅石與活塞排程，讓大型工程穩定接續。</p><div class="mechanic-specs" aria-label="技術生存規格"><p><span>遊戲難度</span><strong>困難</strong><small>保留完整的原版生存挑戰</small></p><p><span>視野距離</span><strong>8 chunks</strong><small>玩家能看見的世界範圍</small></p><p><span>模擬距離</span><strong>8 chunks</strong><small>生物、紅石與農場運作範圍</small></p><p><span>紅石實作</span><strong>原版</strong><small>保留熟悉的更新順序與節奏</small></p><p><span>生物生成</span><strong>玩家獨立計算</strong><small>每位玩家周圍 8 chunks 的生成範圍</small></p><p><span>生怪磚生物</span><strong>完整 AI</strong><small>不關閉生物的正常行為</small></p><p><span>漏斗節奏</span><strong>1 件／8 ticks</strong><small>維持原版物品搬運速度</small></p><p><span>技術機制</span><strong>開放</strong><small>支援活塞複製與永久方塊破壞玩法</small></p></div></div></article>
+            <article class="mechanic-item" data-guide-item><span>02</span><div><h3>礦車不再受鐵軌限制</h3><p>所有種類的礦車都能直接放在一般方塊上，適合做場景裝飾、座椅與更自由的機關配置；正常鐵路運輸也維持原本使用方式。</p></div></article>
+            <article class="mechanic-item" data-guide-item><span>03</span><div><h3>挖掘掉落物集中</h3><p>方塊被破壞後，掉落物會整齊落在方塊中央，減少物品卡進牆面或散落到難以撿取的位置。</p></div></article>
+            <article class="mechanic-item" data-guide-item><span>04</span><div><h3>礦物代換</h3><p>探索天然岩層時，部分被挖掘的石頭、深板岩與地獄岩有機會顯露礦物，讓採礦旅程保留驚喜。爆破採礦也能正常參與這套機制。</p></div></article>
+            <article class="mechanic-item" data-guide-item><span>05</span><div><h3>同色電梯</h3><p>以終界珍珠為中心、八個白色羊毛圍繞合成電梯。上下兩層使用相同顏色，站上後跳躍即可上升、蹲下即可下降，最遠可相隔 100 格。</p></div></article>
+            <article class="mechanic-item" data-guide-item><span>06</span><div><h3>更從容的建築細節</h3><p>上方有方塊時仍可開啟箱子；木材可透過切石機快速去皮；忠誠三叉戟落入虛空也會回到主人身旁。</p></div></article>
+            <article class="mechanic-item" data-guide-item><span>07</span><div><h3>大型地獄傳送門</h3><p>除了原版大小，也能打造最大 24 × 24 的地獄傳送門，讓交通入口自然融入大型建築。</p></div></article>
+            <article class="mechanic-item" data-guide-item><span>08</span><div><h3>野外資源更新</h3><p>長時間無人使用的未保護野外區域可能逐步更新。請務必替永久建築建立領地，不要把重要設施留在無保護區域。</p></div></article>
+          </div>
+        </section>
+
+        <section class="guide-section" id="resident" data-guide-section data-keywords="一般居民 旅人 免費 功能 權限 領地 傳送石碑 背包 電梯 夜視 飛行 基岩 副手 隨機傳送 漏斗 商店 市集 每日任務 活動 自動整理">
+          <header class="guide-section-heading">
+            <p>06 / RESIDENT ACCESS</p>
+            <h2>一般居民功能</h2>
+            <span>踏進星鈴町便能使用的完整生存機能；不需額外身分，也能安心建設、探索、交易與參與活動。</span>
+          </header>
+
+          <article class="resident-summary" data-guide-item>
+            <div><span>領地</span><strong>5 處</strong><small>單處最大 256 × 256，3 個子區域</small></div>
+            <div><span>傳送石碑</span><strong>5 座</strong><small>支援跨世界傳送，啟動等待 3 秒</small></div>
+            <div><span>個人背包</span><strong>9 格</strong><small>輸入 <code>/bp</code> 隨身開啟</small></div>
+            <div><span>隨機傳送</span><strong>三世界</strong><small>主世界、地獄與終界皆可使用</small></div>
+          </article>
+
+          <div class="resident-access-grid">
+            <article class="access-card" data-guide-item>
+              <p>TRAVEL</p><h3>移動與探索</h3>
+              <ul><li>出生點傳送與首次加入引導</li><li>主世界、地獄、終界隨機傳送</li><li>跨世界傳送石碑與羅盤選單</li><li>領地飛行最高 10 分鐘，每 5 分鐘回復 30 秒</li><li>常駐夜視、區塊邊界與地獄座標換算</li><li>夜魅生成切換與基岩版副手支援</li></ul>
+            </article>
+            <article class="access-card" data-guide-item>
+              <p>BUILD</p><h3>建築與自動化</h3>
+              <ul><li>電梯製作、放置、使用與染色</li><li>自由搭建紅石農場與自訂地獄傳送門</li><li>裝甲鞘翅與區塊載入器使用</li><li>最多 500 座進階漏斗，並可查看、領取與中止工作</li><li>方塊紀錄查詢，協助確認建築變動</li></ul>
+            </article>
+            <article class="access-card" data-guide-item>
+              <p>ITEMS</p><h3>物品與收納</h3>
+              <ul><li>個人背包、容器整理與背包自動排序</li><li>生物捕捉網與自訂物品完整使用權</li><li>手持物品可作為帽子穿戴</li><li>物品簽名與簽名移除</li><li>特殊掉落物名稱提示與記分板顯示切換</li></ul>
+            </article>
+            <article class="access-card" data-guide-item>
+              <p>TRADE</p><h3>交易與日常</h3>
+              <ul><li>玩家箱子商店、點數轉帳與公開市集瀏覽</li><li>市集販售／收購各 10 件、競標 2 件，稅率 5%</li><li>市集商品可刊登 10 日</li><li>每日任務、跳過、通知、商店與排行榜</li><li>物資蒐集活動與活動選單</li><li>初階寶箱自選獎勵與競技場挑戰</li><li>Discord 綁定解除與領地清單查詢</li></ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="guide-section" id="convenience" data-guide-section data-keywords="便捷 背包 撿取 夜視 座標 史萊姆區塊 夜魅 飛行 垃圾桶 整理 挖礦 連鎖 採集 安全丟棄 safedrop sd psd 經驗瓶 xpbottle 村民 davdt 地獄頂層 基岩 在線獎勵 時鐘 F">
+          <header class="guide-section-heading">
+            <p>07 / CONVENIENCE</p>
+            <h2>便捷功能</h2>
+            <span>少一點重複操作，把時間留給真正想完成的建築與旅程。</span>
+          </header>
+
+          <article class="guide-note guide-note-primary" data-guide-item>
+            <h3>不用找指令，也能打開便捷選單</h3>
+            <p>手持新手時鐘按右鍵即可開啟。沒有拿時鐘時，也能蹲下並按交換副手鍵（Java 版預設 <kbd>F</kbd>）；直接輸入 <code>/m</code> 也能抵達同一個主選單。</p>
+          </article>
+
+          <div class="command-groups">
+            <section data-guide-item>
+              <h3>安全丟棄與經驗</h3>
+              <p><code>/sd</code><span>切換安全丟棄。預設開啟，第一次丟出物品會先被攔下；若確定要丟棄，請在 10 秒內再次丟出。</span></p>
+              <p><code>/psd</code><span>將安全丟棄設為長期關閉，再輸入一次即可重新啟用；重新登入後也會保留目前設定。</span></p>
+              <p><code>/xpbottle &lt;等級數&gt;</code><span>把指定等級轉為同等數量的經驗瓶，每次提取收取 50 遊戲幣；背包已滿時會落在腳邊。</span></p>
+              <p><code>/davdt</code><span>切換是否能傷害村民。預設為保護狀態，準備搬運或處理村民前再開啟即可。</span></p>
+            </section>
+            <section data-guide-item>
+              <h3>探索與視野</h3>
+              <p><code>/nl</code><span>開啟或關閉個人永久夜視。</span></p>
+              <p><code>/nc</code><span>換算主世界與地獄的對應座標。</span></p>
+              <p><code>/slimemap</code><span>查看附近史萊姆區塊與區塊中心。</span></p>
+              <p><code>/top</code><span>前往目前位置上方最高的安全方塊。</span></p>
+              <p><code>/pt toggle</code><span>切換自己是否會生成夜魅。</span></p>
+              <p><code>/shck</code><span>以粒子顯示目前區塊邊界。</span></p>
+            </section>
+            <section data-guide-item>
+              <h3>背包與物品</h3>
+              <p><code>/bp</code><span>開啟個人隨身背包；容量會依目前身分顯示。</span></p>
+              <p><code>/pickup</code><span><b class="tier-requirement">風鈴客以上</b>設定哪些掉落物要自動吸取或忽略。</span></p>
+              <p><code>/trash</code><span>開啟垃圾桶；關閉前請再次確認內容。</span></p>
+              <p><code>/sort</code><span>整理目前容器內的物品。</span></p>
+              <p><code>/isort</code><span>整理自己的背包。</span></p>
+            </section>
+            <section data-guide-item>
+              <h3>建築與保護</h3>
+              <p><code>/sh</code><span>切換連鎖採集，適合整理礦脈與成片素材。</span></p>
+              <p><code>/dfly</code><span>在允許的領地內使用飛行時間；離開領地或進入戰鬥時會關閉。</span></p>
+              <p><code>/rgm</code><span>在自己的領地內切換觀察模式，檢查建築內部。</span></p>
+              <p><code>/co i</code><span>切換方塊紀錄查詢，查看誰曾放置或破壞方塊。</span></p>
+            </section>
+            <section data-guide-item>
+              <h3>依身分開放的工作站</h3>
+              <p><code>/craft</code><span><b class="tier-requirement">星燈使以上</b>隨身合成台。</span></p>
+              <p><code>/enderchest</code><span><b class="tier-requirement">風鈴客以上</b>隨身終界箱。</span></p>
+              <p><code>/stonecutter</code><span><b class="tier-requirement">櫻守者以上</b>隨身切石機。</span></p>
+              <p><code>/enchant</code><span><b class="tier-requirement">星輝使</b>隨身附魔台。</span></p>
+              <p><code>/cartography</code><span><b class="tier-requirement">風鈴客以上</b>隨身製圖台。</span></p>
+              <p><code>/smithing</code><span><b class="tier-requirement">櫻守者以上</b>隨身鍛造台。</span></p>
+            </section>
+          </div>
+
+          <div class="feature-guide-grid life-system-grid">
+            <article class="feature-guide" data-guide-item>
+              <span>NETHER PASSAGE</span><h3>地獄頂層往返</h3>
+              <p>在地獄接近頂層時，蹲下並右鍵點擊頭頂的基岩方塊，即可前往地獄頂層；要返回下方，站在頂層附近蹲下並左鍵點擊基岩方塊，系統會尋找同座標附近的安全落點。</p>
+              <p class="feature-guide-note">若下方暫時找不到安全空間，角色會留在原處，請換一個位置再嘗試。</p>
+            </article>
+            <article class="feature-guide" data-guide-item>
+              <span>QUIET ASSISTANCE</span><h3>會自動發生的町內照顧</h3>
+              <ul class="life-system-list">
+                <li>連續在線每 10 分鐘，自動獲得 30 遊戲幣；離線後會重新計時。</li>
+                <li>基岩版居民加入後，外觀會在數秒內自動同步，不必輸入指令。</li>
+                <li>未建立領地的野外，苦力怕等生物爆炸不會破壞周圍地形。</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="guide-section" id="vip" data-guide-section data-keywords="VIP 月見者 星燈使 風鈴客 櫻守者 星輝使 贊助 領地 傳送石碑 背包 飛行 市集 稅率 自動吸取 隱藏盔甲 隨身工作站">
+          <header class="guide-section-heading">
+            <p>08 / VIP BENEFITS</p>
+            <h2>VIP 身分功能</h2>
+            <span>每一階都包含一般居民功能；下方依目前正式服設定，完整列出各身分可使用的加值內容與額度。</span>
+          </header>
+
+          <article class="vip-shared" data-guide-item>
+            <p>全階共通</p>
+            <span>聊天、告示牌與鐵砧彩色文字</span>
+            <span>領地清理保留保障</span>
+            <span>身分對應的玩家商店與市集額度</span>
+            <span>更高的傳送石碑、領地與飛行時數</span>
+          </article>
+
+          <article class="vip-comparison-panel" data-guide-item>
+            <div class="vip-table-scroll" tabindex="0" aria-label="VIP 身分功能比較表，可左右滑動查看">
+              <table class="vip-comparison">
+                <thead>
+                  <tr>
+                    <th scope="col">功能比較</th>
+                    <th scope="col" class="rank-moon"><span>VIP</span><strong>月見者</strong><small>200 御守幣</small></th>
+                    <th scope="col" class="rank-star"><span>VIP+</span><strong>星燈使</strong><small>500 御守幣</small></th>
+                    <th scope="col" class="rank-wind"><span>MVP</span><strong>風鈴客</strong><small>1,000 御守幣</small></th>
+                    <th scope="col" class="rank-cherry"><span>MVP+</span><strong>櫻守者</strong><small>2,000 御守幣</small></th>
+                    <th scope="col" class="rank-celestial"><span>MVP++</span><strong>星輝使</strong><small>3,000 御守幣</small></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">傳送石碑</th><td>10 座</td><td>20 座</td><td>30 座</td><td>40 座</td><td>50 座</td></tr>
+                  <tr><th scope="row">領地數量</th><td>10 處</td><td>20 處</td><td>30 處</td><td>40 處</td><td>50 處</td></tr>
+                  <tr><th scope="row">單處領地上限</th><td>300 × 300</td><td>350 × 350</td><td>400 × 400</td><td>450 × 450</td><td>500 × 500</td></tr>
+                  <tr><th scope="row">每處子區域</th><td>5 個</td><td>10 個</td><td>20 個</td><td>30 個</td><td>40 個</td></tr>
+                  <tr><th scope="row">隨身背包</th><td>27 格</td><td>45 格</td><td>雙頁 36 格</td><td>雙頁 90 格</td><td>三頁 135 格</td></tr>
+                  <tr><th scope="row">飛行上限</th><td>40 分鐘</td><td>60 分鐘</td><td>80 分鐘</td><td>90 分鐘</td><td>全域無限</td></tr>
+                  <tr><th scope="row">每 5 分鐘回復</th><td>1 分鐘</td><td>1 分 20 秒</td><td>1 分 40 秒</td><td>2 分鐘</td><td>不受限制</td></tr>
+                  <tr><th scope="row">市集販售／收購</th><td>各 20 件</td><td>各 30 件</td><td>各 45 件</td><td>各 55 件</td><td>各 70 件</td></tr>
+                  <tr><th scope="row">競標額度</th><td>3 件</td><td>4 件</td><td>5 件</td><td>6 件</td><td>8 件</td></tr>
+                  <tr><th scope="row">市集稅率</th><td>4%</td><td>3.5%</td><td>3%</td><td>2.5%</td><td>2%</td></tr>
+                  <tr><th scope="row">商品刊登期限</th><td>14 日</td><td>21 日</td><td>30 日</td><td>45 日</td><td>60 日</td></tr>
+                  <tr class="vip-detail-row">
+                    <th scope="row">額外功能</th>
+                    <td>彩色文字<br>領地保留保障</td>
+                    <td>傳送免等待<br>任務冷卻 1 分鐘<br>隨身工作台</td>
+                    <td>自動吸取<br>隱藏盔甲<br>工作台、製圖台、終界箱</td>
+                    <td>快速開啟界伏盒<br>領地飽食<br>切石機與鍛造台<br>緋血帝王外觀</td>
+                    <td>領地回復與耐久保護<br>全套隨身工作站<br>星辰與緋血帝王外觀<br>晨曦系列裝備</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <p class="vip-upgrade-note"><strong>身分升級</strong><span>已有身分的居民若想往上升級，只需補足目前階級與目標階級之間的御守幣差額，不必重新支付全額。</span></p>
+          <p class="vip-footnote">身分名稱、價格與額度依目前正式服設定整理；若日後有所調整，將以遊戲內實際顯示與 Discord 公告為準。</p>
+        </section>
+
+        <section class="guide-section" id="economy" data-guide-section data-keywords="經濟 金錢 交易 商店 玩家商店 市集 拍賣 balance pay trade shop">
+          <header class="guide-section-heading">
+            <p>09 / ECONOMY</p>
+            <h2>經濟與交易</h2>
+            <span>從居民之間的一次交換，到町內市集的一間小店。</span>
+          </header>
+
+          <div class="command-list" aria-label="經濟指令">
+            <article class="command-row" data-guide-item><code>/bal</code><div><h3>查看餘額</h3><p>顯示自己目前持有的遊戲幣。</p></div></article>
+            <article class="command-row" data-guide-item><code>/pay &lt;玩家&gt; &lt;金額&gt;</code><div><h3>轉帳</h3><p>把指定金額交給另一位在線居民，送出前請再次確認名稱。</p></div></article>
+            <article class="command-row" data-guide-item><code>/baltop</code><div><h3>財富排行</h3><p>查看目前町內遊戲幣排行。</p></div></article>
+            <article class="command-row" data-guide-item><code>/shop</code><div><h3>官方商店</h3><p>開啟系統收購與販售介面。</p></div></article>
+            <article class="command-row" data-guide-item><code>/trade &lt;玩家&gt;</code><div><h3>安全交易</h3><p>向指定居民發出交易邀請，雙方確認後才會完成交換。</p></div></article>
+            <article class="command-row" data-guide-item><code>/gmp market gui</code><div><h3>全服市場</h3><p>開啟玩家刊登的商品市場。</p></div></article>
+          </div>
+
+          <article class="guide-note" data-guide-item>
+            <h3>建立自己的箱子商店</h3>
+            <ol><li>手持想販售的物品，左鍵點擊箱子或木桶。</li><li>依聊天提示輸入單價並完成建立。</li><li>需要尋找商品時，使用 <code>/qs find &lt;物品名稱&gt;</code>。</li></ol>
+            <p>一般玩家目前最多可建立 25 間箱子商店；建立與改價會依畫面提示收取費用。公開市集可直接瀏覽與刊登商品，市場信箱目前未向一般居民開放。</p>
+          </article>
+        </section>
+
+        <section class="guide-section" id="social" data-guide-section data-keywords="社交 公會 稱號 外觀 皮膚 隱藏盔甲 坐下 躺下 姿勢 頭帽">
+          <header class="guide-section-heading">
+            <p>10 / COMMUNITY</p>
+            <h2>社交與外觀</h2>
+            <span>讓名字、衣著與一個小動作，也能成為町內生活的一部分。</span>
+          </header>
+          <div class="command-groups social-groups">
+            <section data-guide-item><h3>身分與外觀</h3><p><code>/plt open</code><span>開啟稱號選單。</span></p><p><code>/plg open</code><span>開啟公會介面。</span></p><p><code>/ds</code><span>開啟外觀選單。</span></p><p><code>/dha</code><span><b class="tier-requirement">風鈴客以上</b>切換盔甲外觀顯示。</span></p><p><code>/hat</code><span>將手中可用物品戴在頭上。</span></p></section>
+            <section data-guide-item><h3>角色動作</h3><p><code>/sit</code><span>坐下。</span></p><p><code>/lay</code><span>躺下。</span></p><p><code>/layback</code><span>向後倚躺。</span></p><p><code>/bellyflop</code><span>趴下。</span></p><p><code>/spin</code><span>原地旋轉。</span></p><p><code>/crawl</code><span>切換匍匐姿勢。</span></p></section>
+          </div>
+        </section>
+
+        <section class="guide-section" id="games" data-guide-section data-keywords="小遊戲 2048 暗棋 UNO 爆炸貓 十三支 五子棋 黑傑克 井字棋 抽鬼牌">
+          <header class="guide-section-heading">
+            <p>11 / MINI GAMES</p>
+            <h2>小遊戲</h2>
+            <span>工程告一段落時，邀幾位居民坐下來玩一局。</span>
+          </header>
+
+          <article class="guide-note guide-note-primary" data-guide-item>
+            <h3><code>/games</code> 小遊戲大廳</h3>
+            <p>從選單快速建立 2048、暗棋、UNO、爆炸貓與黑傑克房間；其他遊戲也能透過下列指令直接開始。</p>
+          </article>
+
+          <div class="game-command-grid">
+            <article data-guide-item><code>/2048</code><h3>2048</h3><p>單人益智挑戰。</p></article>
+            <article data-guide-item><code>/darkchess create</code><h3>暗棋</h3><p>建立一場雙人棋局。</p></article>
+            <article data-guide-item><code>/unogame create</code><h3>UNO</h3><p>建立多人卡牌房間。</p></article>
+            <article data-guide-item><code>/explodingkittens create</code><h3>爆炸貓</h3><p>建立多人卡牌房間。</p></article>
+            <article data-guide-item><code>/blackjack create</code><h3>黑傑克</h3><p>建立牌桌。</p></article>
+            <article data-guide-item><code>/gomoku</code><h3>五子棋</h3><p>開啟五子棋玩法。</p></article>
+            <article data-guide-item><code>/bigtwo</code><h3>大老二</h3><p>開啟多人撲克牌局。</p></article>
+            <article data-guide-item><code>/oldmaid</code><h3>抽鬼牌</h3><p>開啟多人卡牌遊戲。</p></article>
+            <article data-guide-item><code>/ttt &lt;玩家&gt;</code><h3>井字棋</h3><p>邀請指定居民對戰。</p></article>
+          </div>
+        </section>
+
+        <section class="guide-ending" data-guide-item>
+          <img src="/server-icon-v2.webp?v=20260804-imagefix2" alt="" width="88" height="88">
+          <div><p>WELCOME HOME</p><h2>還有不確定的地方？</h2><span>到 Discord 告訴我們你想完成的事，町內居民會陪你一起找答案。</span></div>
+          <a href="https://discord.gg/mQWhSPuZZD" target="_blank" rel="noopener noreferrer">前往 Discord 社群</a>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-brand"><img src="/server-icon-v2.webp?v=20260804-imagefix2" alt="" width="48" height="48"><p><strong>星鈴町伺服器</strong><span>自製系統・順暢生存</span></p></div>
+    <nav aria-label="頁尾連結"><a href="/">首頁</a><a href="/rules.html">玩家守則</a><a href="#start">新手</a><a href="#mechanics">機制</a><a href="#resident">居民功能</a><a href="#vip">VIP</a><a href="#games">小遊戲</a><a href="https://discord.gg/mQWhSPuZZD" target="_blank" rel="noopener noreferrer">Discord</a></nav>
+    <p>Minecraft is a trademark of Mojang Studios. This server is not affiliated with Mojang or Microsoft.</p>
+  </footer>
+
+  <div class="copy-toast" role="status" aria-live="polite" data-toast></div>
+  <script src="/commands.js?v=20260803-lifeskills1"></script>
+</body>
+</html>
