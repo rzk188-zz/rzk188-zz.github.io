@@ -9,9 +9,9 @@
   --forest-dark: #c2410c;
   --rose: #f97316;
   --rose-dark: #ea580c;
-  --sky: #4f8eac;
+  --sky: #f97316;
   --gold: #d29a3c;
-  --discord: #5865f2;
+  --discord: #f97316;
   --header-height: 76px;
   --max-width: 1240px;
   --shadow: 0 18px 50px rgba(35, 48, 60, 0.12);
@@ -1161,7 +1161,7 @@ img {
 }
 
 .announcement-filters button[aria-selected="true"]::after {
-  background: #f0a5b9;
+  background: #fdba74;
 }
 
 .announcement-feed {
@@ -1231,7 +1231,7 @@ img {
   left: 14px;
   padding: 5px 9px;
   color: #271f23;
-  background: #f0a5b9;
+  background: #fdba74;
   border: 1px solid rgba(255, 255, 255, 0.48);
   border-radius: 4px;
   font-size: 11px;
@@ -1293,7 +1293,7 @@ img {
 .announcement-indicator {
   display: grid;
   place-items: center;
-  color: #f0a5b9;
+  color: #fdba74;
   font-size: 25px;
   line-height: 1;
   transition: transform 180ms ease;
@@ -1322,7 +1322,7 @@ img {
 }
 
 .announcement-detail a {
-  color: #f0a5b9;
+  color: #fdba74;
   font-size: 12px;
   font-weight: 850;
 }
@@ -1359,7 +1359,7 @@ img {
   width: 36px;
   height: 36px;
   border: 3px solid #514b51;
-  border-top-color: #f0a5b9;
+  border-top-color: #fdba74;
   border-radius: 50%;
   animation: announcement-spin 900ms linear infinite;
 }
@@ -1401,8 +1401,8 @@ img {
 .announcement-footer button:hover,
 .announcement-footer button:focus-visible {
   color: #251f23;
-  background: #f0a5b9;
-  border-color: #f0a5b9;
+  background: #fdba74;
+  border-color: #fdba74;
 }
 
 .announcement-footer button[hidden] {
