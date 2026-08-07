@@ -181,7 +181,7 @@ function normalizeSponsor(record) {
     amount: Number.isFinite(rawAmount) && rawAmount > 0 ? rawAmount : 0,
     currency: cleanText(record.currency, "OMAMORI").toUpperCase(),
     hideAmount: Boolean(record.hideAmount),
-    message: cleanText(record.message ?? record.note, "謝謝你支持星鈴町。"),
+    message: cleanText(record.message ?? record.note, ""),
   };
 }
 
