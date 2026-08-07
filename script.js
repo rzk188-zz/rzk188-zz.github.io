@@ -258,12 +258,7 @@ function renderSponsors(records) {
 }
 
 async function fetchSponsorData() {
-  const configuredEndpoint = body.dataset.sponsorApi || "/api/sponsors";
-  const isLocalPreview = ["127.0.0.1", "localhost"].includes(location.hostname);
-  const endpoints = isLocalPreview
-    ? ["https://www.selin.tw/api/sponsors", "/sponsors.json"]
-    : [configuredEndpoint];
-  if (!endpoints.includes("/sponsors.json")) endpoints.push("/sponsors.json");
+  const endpoints = ["/sponsors.json", body.dataset.sponsorApi || "/api/sponsors"];
 
   for (const endpoint of endpoints) {
     try {
