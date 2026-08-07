@@ -1,4 +1,4 @@
-<!html>
+<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8">
@@ -29,12 +29,63 @@
     </button>
   </header>
 
-  <main class="guide-container" style="min-height: 60vh; display: flex; align-items: center; justify-content: center;">
-    <section class="guide-section" style="text-align: center;">
-      <div class="guide-heading">
-        <p class="eyebrow" style="color: #fb923c; font-weight: 800; letter-spacing: 2px;">GAMEPLAY GUIDE</p>
-        <h2 style="font-size: 2.2rem; margin-top: 0.5rem; color: var(--ink);">遊玩教學</h2>
-        <p style="margin-top: 1rem; color: var(--muted, #c8bdc4); font-size: 1.1rem;">教學內容建置中，敬請期待...</p>
+  <main class="guide-container" style="max-width: 900px; margin: 3rem auto; padding: 0 1.5rem;">
+    <section class="guide-section">
+      <div class="guide-heading" style="text-align: center; margin-bottom: 3rem;">
+        <p class="eyebrow" style="color: #fb923c; font-weight: 800; letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 0.5rem;">GAMEPLAY GUIDE</p>
+        <h2 style="font-size: 2.2rem; font-weight: 800; color: #f3edf1; margin: 0 0 0.5rem 0;">遊玩教學</h2>
+        <p style="color: #c8bdc4; font-size: 1.05rem; margin: 0;">掌握伺服器核心機制，展開您的精彩冒險！</p>
+      </div>
+
+      <div class="guide-content-grid" style="display: flex; flex-direction: column; gap: 2rem;">
+        
+        <!-- 1. 新手起手與基礎操作 -->
+        <div class="guide-card" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; padding: 2rem; backdrop-filter: blur(12px);">
+          <h3 style="font-size: 1.25rem; font-weight: 800; color: #fb923c; margin: 0 0 1rem 0; display: flex; align-items: center; gap: 0.5rem;">
+            <span>🧭</span> 新手起手與基礎操作
+          </h3>
+          <ul style="margin: 0; padding-left: 1.25rem; color: #f3edf1; display: flex; flex-direction: column; gap: 0.75rem; line-height: 1.6;">
+            <li>進入伺服器後，背包中會自動擁有兩樣核心物品：<strong>選單</strong> 與 <strong>黏液指南書</strong>。</li>
+            <li><strong>選單開啟方式</strong>：除了使用道具外，也可直接利用 <strong>「蹲下 (Shift) + F 鍵 (副手交換)」</strong> 快速開啟。</li>
+            <li><strong>一鍵砍樹</strong>：需使用斧頭道具，並保持 <strong>「蹲下 (Shift)」</strong> 狀態才可使用。</li>
+          </ul>
+        </div>
+
+        <!-- 2. 空島與新手福利 -->
+        <div class="guide-card" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; padding: 2rem; backdrop-filter: blur(12px);">
+          <h3 style="font-size: 1.25rem; font-weight: 800; color: #fb923c; margin: 0 0 1rem 0; display: flex; align-items: center; gap: 0.5rem;">
+            <span>🏝️</span> 空島與新手福利
+          </h3>
+          <ul style="margin: 0; padding-left: 1.25rem; color: #f3edf1; display: flex; flex-direction: column; gap: 0.75rem; line-height: 1.6;">
+            <li>剛進入伺服器，建議先<strong>領取空島</strong>，或是<strong>加入其他玩家的空島</strong>。</li>
+            <li>空島內提供各種<strong>升級選項</strong>，包含島嶼<strong>邊界大小</strong>等擴充。</li>
+            <li>創建空島後也會提供<strong>新手箱</strong>供玩家使用。</li>
+            <li>玩家亦可前往畫布<strong>免費領取一塊地</strong>。</li>
+          </ul>
+        </div>
+
+        <!-- 3. 世界分類與資源採集 -->
+        <div class="guide-card" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; padding: 2rem; backdrop-filter: blur(12px);">
+          <h3 style="font-size: 1.25rem; font-weight: 800; color: #fb923c; margin: 0 0 1rem 0; display: flex; align-items: center; gap: 0.5rem;">
+            <span>⛏️</span> 世界分類與資源採集
+          </h3>
+          <ul style="margin: 0; padding-left: 1.25rem; color: #f3edf1; display: flex; flex-direction: column; gap: 0.75rem; line-height: 1.6;">
+            <li><strong>資源世界</strong>：可供玩家採集資源，<strong>無法在此世界設置領地</strong>，<strong>每個月刷新一次</strong>。</li>
+            <li><strong>生存世界</strong>：可供玩家建立領地。建立領地需使用<strong>木鋤</strong>，並藉由<strong>左右鍵選取範圍</strong>。</li>
+          </ul>
+        </div>
+
+        <!-- 4. 外觀造型與坐騎管理 -->
+        <div class="guide-card" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; padding: 2rem; backdrop-filter: blur(12px);">
+          <h3 style="font-size: 1.25rem; font-weight: 800; color: #fb923c; margin: 0 0 1rem 0; display: flex; align-items: center; gap: 0.5rem;">
+            <span>✨</span> 外觀造型與坐騎管理
+          </h3>
+          <ul style="margin: 0; padding-left: 1.25rem; color: #f3edf1; display: flex; flex-direction: column; gap: 0.75rem; line-height: 1.6;">
+            <li><strong>翅膀類外觀</strong>：需放置在<strong>副手</strong>，才可正常顯示。</li>
+            <li><strong>寵物坐騎</strong>：需<strong>蹲下 + 右鍵</strong>開啟介面，切換外觀或進行騎乘。</li>
+          </ul>
+        </div>
+
       </div>
     </section>
   </main>

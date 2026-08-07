@@ -55,14 +55,14 @@
           <label style="font-weight: 700; color: #f3edf1; font-size: 0.95rem;">贊助方式 <span style="color: #fb923c;">*</span></label>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
             <label class="payment-option" style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; cursor: pointer; transition: all 0.2s;">
-              <input type="radio" name="payment-method" value="convenience" required style="accent-color: #fb923c;">
+              <input type="radio" name="payment-method" value="超商繳費" required style="accent-color: #fb923c;">
               <div>
                 <strong style="display: block; color: #f3edf1; font-size: 0.95rem;">超商繳費</strong>
                 <small style="color: #c8bdc4; font-size: 0.8rem;">7-11 / 全家代碼繳費</small>
               </div>
             </label>
             <label class="payment-option" style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; cursor: pointer; transition: all 0.2s;">
-              <input type="radio" name="payment-method" value="transfer" required style="accent-color: #fb923c;">
+              <input type="radio" name="payment-method" value="銀行轉帳" required style="accent-color: #fb923c;">
               <div>
                 <strong style="display: block; color: #f3edf1; font-size: 0.95rem;">銀行轉帳</strong>
                 <small style="color: #c8bdc4; font-size: 0.8rem;">ATM / 網路銀行轉帳</small>
@@ -118,48 +118,46 @@
       const isPublicAmount = document.getElementById('public-amount').checked;
       const message = document.getElementById('donate-message').value || '無';
 
-      const methodName = method === 'transfer' ? '銀行轉帳' : '超商繳費';
       const displayId = isPublicId ? mcId : '匿名';
       const displayAmount = isPublicAmount ? `NT$ ${amount}` : '隱藏金額';
 
       submitBtn.disabled = true;
       submitBtn.textContent = '正在發送贊助申請...';
 
-      // 構建 Discord 嵌入訊息 (Embed)
+      // 透過免費 corsproxy 轉發 Discord Webhook 以繞過瀏覽器 CORS 限制
+      const proxyUrl = "https://api.allorigins.win/raw?url=" + encodeURIComponent(DISCORD_WEBHOOK_URL);
+      
       const payload = {
         username: "好玩一直玩 - 贊助通知系統",
-        avatar_url: "https://i.imgur.com/2Z09Y4X.png",
         embeds: [{
           title: "💰 收到新的贊助申請！",
-          color: 16474132, // 橘色系
+          color: 16474132,
           fields: [
             { name: "👤 玩家遊戲 ID", value: `\`${mcId}\``, inline: true },
             { name: "💵 贊助金額", value: `\`NT$ ${amount}\``, inline: true },
-            { name: "💳 付款方式", value: `\`${methodName}\``, inline: true },
+            { name: "💳 付款方式", value: `\`${method}\``, inline: true },
             { name: "👁️ 隱私設定", value: `ID: ${isPublicId ? '🟢 公開' : '🔴 不公開'} | 金額: ${isPublicAmount ? '🟢 公開' : '🔴 不公開'}`, inline: false },
             { name: "💬 贊助留言", value: message, inline: false },
             { name: "⏰ 申請時間", value: new Date().toLocaleString('zh-TW', { timeZone: 'Asia/Taipei' }), inline: false }
           ],
-          footer: {
-            text: "好玩一直玩 Minecraft Server"
-          }
+          footer: { text: "好玩一直玩 Minecraft Server" }
         }]
       };
 
       try {
-        await fetch(DISCORD_WEBHOOK_URL, {
+        await fetch(proxyUrl, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
         });
       } catch (err) {
-        console.error('Webhook send failed:', err);
+        console.error('Webhook proxy send failed:', err);
       }
 
       submitBtn.disabled = false;
       submitBtn.textContent = '確認送出贊助申請';
 
-      if (method === 'transfer') {
+      if (method === '銀行轉帳') {
         alert(`感謝您的支持！\n\n贊助玩家：${displayId} (${mcId})\n贊助金額：${displayAmount}\n贊助方式：銀行轉帳\n\n【轉帳資訊】\n銀行代號：008\n轉帳帳號：800200727070\n\n已同步發送通知至管理員頻道，完成轉帳後請截圖並至 Discord 社群聯繫管理員確認！`);
       } else {
         alert(`感謝您的支持！\n\n贊助玩家：${displayId} (${mcId})\n贊助金額：${displayAmount}\n贊助方式：超商繳費\n\n已同步發送通知至管理員頻道，請前往 Discord 社群聯繫管理員取得超商繳費代碼！`);
