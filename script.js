@@ -1,4 +1,3 @@
-const body = document.body;
 const header = document.querySelector("[data-header]");
 const menuButton = document.querySelector("[data-menu-button]");
 const navigation = document.querySelector("[data-nav]");
@@ -58,8 +57,6 @@ async function copyText(value) {
   textarea.style.top = "0";
   textarea.style.left = "-9999px";
   textarea.style.fontSize = "16px";
-  textarea.style.opacity = "0";
-  textarea.style.pointerEvents = "none";
   document.body.append(textarea);
   textarea.focus();
   textarea.select();
@@ -98,7 +95,6 @@ document.querySelectorAll("[data-copy]").forEach((button) => {
   });
 });
 
-
 function renderPlayerStatus(status) {
   const hasCount = Boolean(status?.available) && Number.isFinite(Number(status?.players));
   const playerCount = hasCount ? Math.max(0, Math.round(Number(status.players))) : null;
@@ -118,7 +114,66 @@ function renderPlayerStatus(status) {
   });
 }
 
-// 建立在線玩家名單互動浮窗
+async function fetchPlayerStatus() {
+  try {
+    const res = await fetch('https://api.minetools.eu/ping/haowan.pro');
+    const data = await res.json();
+    if (data.error) {
+      throw new Error(data.error);
+    }
+    const onlineCount = data.players.online;
+    renderPlayerStatus({ available: true, online: true, players: onlineCount });
+  } catch (e) {
+    try {
+      const res2 = await fetch('https://api.mcsrvstat.us/3/haowan.pro');
+      const data2 = await res2.json();
+      if (data2.online) {
+        renderPlayerStatus({ available: true, online: true, players: data2.players.online });
+        return;
+      }
+    } catch (e2) {}
+    renderPlayerStatus(null);
+  }
+}
+
+// 側邊欄贊助玩家渲染邏輯
+async function fetchSupporters() {
+  const container = document.querySelector('[data-hero-supporter-list]');
+  if (!container) return;
+
+  try {
+    const res = await fetch('sponsors.json?v=' + Date.now());
+    const sponsors = await res.json();
+    if (!Array.isArray(sponsors) || sponsors.length === 0) {
+      container.innerHTML = '<div class="hero-supporter-empty"><span>星</span><p><strong>等待第一位支持者</strong><small>贊助內容會同步顯示於此</small></p></div>';
+      return;
+    }
+
+    container.innerHTML = sponsors.map((s) => {
+      const mcId = s.minecraftId || s.name || 'Steve';
+      const avatarUrl = `https://mc-heads.net/avatar/${encodeURIComponent(mcId)}/64`;
+      const amountStr = s.hideAmount ? '' : `NT$ ${s.amount.toLocaleString()}`;
+      const msg = s.message ? s.message : '';
+
+      return `
+        <article class="hero-supporter-card">
+          <img src="${avatarUrl}" alt="${s.name}" onerror="this.src='https://mc-heads.net/avatar/Steve/64'">
+          <div>
+            <div class="hero-supporter-meta">
+              <strong>${s.name}</strong>
+              <span>${amountStr}</span>
+            </div>
+            ${msg ? `<p>${msg}</p>` : ''}
+          </div>
+        </article>
+      `;
+    }).join('');
+  } catch (err) {
+    console.error('Failed to load supporters:', err);
+  }
+}
+
+// 線上玩家互動彈窗
 let playerModal = null;
 function createPlayerModal() {
   if (playerModal) return playerModal;
@@ -181,7 +236,6 @@ async function fetchOnlinePlayers() {
   }
 }
 
-// 點擊狀態列彈出在線玩家名單
 document.addEventListener('click', (e) => {
   const statusTrigger = e.target.closest('[data-server-status]');
   if (statusTrigger) {
@@ -189,3 +243,7 @@ document.addEventListener('click', (e) => {
     fetchOnlinePlayers();
   }
 });
+
+fetchPlayerStatus();
+fetchSupporters();
+setInterval(fetchPlayerStatus, 30000);
