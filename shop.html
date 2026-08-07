@@ -93,7 +93,7 @@
         </div>
 
         <!-- 提交按鈕 -->
-        <button type="submit" style="margin-top: 1rem; padding: 1rem; background: linear-gradient(135deg, #fb923c, #ea580c); color: #fff; border: none; border-radius: 12px; font-size: 1.05rem; font-weight: 800; cursor: pointer; box-shadow: 0 8px 20px rgba(251, 146, 60, 0.3); transition: transform 0.2s, box-shadow 0.2s;">確認送出贊助申請</button>
+        <button type="submit" id="submit-btn" style="margin-top: 1rem; padding: 1rem; background: linear-gradient(135deg, #fb923c, #ea580c); color: #fff; border: none; border-radius: 12px; font-size: 1.05rem; font-weight: 800; cursor: pointer; box-shadow: 0 8px 20px rgba(251, 146, 60, 0.3); transition: transform 0.2s, box-shadow 0.2s;">確認送出贊助申請</button>
       </form>
     </section>
   </main>
@@ -106,23 +106,63 @@
 
   <script src="script.js?v=20260804"></script>
   <script>
-    function handleDonateSubmit(e) {
+    const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1535167896701894780/EQgJqGOjVgzMpJpxaM-3BqcUlPH909urTojSdi7l8WmVx52qZ2uNkXbH2xflI79tCrrf";
+
+    async function handleDonateSubmit(e) {
       e.preventDefault();
+      const submitBtn = document.getElementById('submit-btn');
       const amount = document.getElementById('donate-amount').value;
       const mcId = document.getElementById('donate-id').value;
       const method = document.querySelector('input[name="payment-method"]:checked').value;
       const isPublicId = document.getElementById('public-id').checked;
       const isPublicAmount = document.getElementById('public-amount').checked;
-      const message = document.getElementById('donate-message').value;
+      const message = document.getElementById('donate-message').value || '無';
 
       const methodName = method === 'transfer' ? '銀行轉帳' : '超商繳費';
       const displayId = isPublicId ? mcId : '匿名';
       const displayAmount = isPublicAmount ? `NT$ ${amount}` : '隱藏金額';
 
+      submitBtn.disabled = true;
+      submitBtn.textContent = '正在發送贊助申請...';
+
+      // 構建 Discord 嵌入訊息 (Embed)
+      const payload = {
+        username: "好玩一直玩 - 贊助通知系統",
+        avatar_url: "https://i.imgur.com/2Z09Y4X.png",
+        embeds: [{
+          title: "💰 收到新的贊助申請！",
+          color: 16474132, // 橘色系
+          fields: [
+            { name: "👤 玩家遊戲 ID", value: `\`${mcId}\``, inline: true },
+            { name: "💵 贊助金額", value: `\`NT$ ${amount}\``, inline: true },
+            { name: "💳 付款方式", value: `\`${methodName}\``, inline: true },
+            { name: "👁️ 隱私設定", value: `ID: ${isPublicId ? '🟢 公開' : '🔴 不公開'} | 金額: ${isPublicAmount ? '🟢 公開' : '🔴 不公開'}`, inline: false },
+            { name: "💬 贊助留言", value: message, inline: false },
+            { name: "⏰ 申請時間", value: new Date().toLocaleString('zh-TW', { timeZone: 'Asia/Taipei' }), inline: false }
+          ],
+          footer: {
+            text: "好玩一直玩 Minecraft Server"
+          }
+        }]
+      };
+
+      try {
+        await fetch(DISCORD_WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+      } catch (err) {
+        console.error('Webhook send failed:', err);
+      }
+
+      submitBtn.disabled = false;
+      submitBtn.textContent = '確認送出贊助申請';
+
       if (method === 'transfer') {
-        alert(`感謝您的支持！\n\n贊助玩家：${displayId} (${mcId})\n贊助金額：${displayAmount}\n贊助方式：銀行轉帳\n公開設定：[ID: ${isPublicId ? '公開' : '不公開'} | 金額: ${isPublicAmount ? '公開' : '不公開'}]\n\n【轉帳資訊】\n銀行代號：008\n轉帳帳號：800200727070\n\n完成轉帳後請截圖並至 Discord 社群聯繫管理員確認！`);
+        alert(`感謝您的支持！\n\n贊助玩家：${displayId} (${mcId})\n贊助金額：${displayAmount}\n贊助方式：銀行轉帳\n\n【轉帳資訊】\n銀行代號：008\n轉帳帳號：800200727070\n\n已同步發送通知至管理員頻道，完成轉帳後請截圖並至 Discord 社群聯繫管理員確認！`);
       } else {
-        alert(`感謝您的支持！\n\n贊助玩家：${displayId} (${mcId})\n贊助金額：${displayAmount}\n贊助方式：超商繳費\n公開設定：[ID: ${isPublicId ? '公開' : '不公開'} | 金額: ${isPublicAmount ? '公開' : '不公開'}]\n\n請前往 Discord 社群聯繫管理員取得超商繳費代碼！`);
+        alert(`感謝您的支持！\n\n贊助玩家：${displayId} (${mcId})\n贊助金額：${displayAmount}\n贊助方式：超商繳費\n\n已同步發送通知至管理員頻道，請前往 Discord 社群聯繫管理員取得超商繳費代碼！`);
       }
       document.getElementById('donate-form').reset();
     }
