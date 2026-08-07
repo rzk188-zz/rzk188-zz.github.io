@@ -96,5 +96,135 @@
 
   <div class="copy-toast" role="status" aria-live="polite" data-toast></div>
   <script src="script.js?v=20260804-announcements6"></script>
+
+  <!-- 背景音樂控制按鈕與 YouTube 播放器 -->
+  <div class="music-widget" aria-label="背景音樂控制">
+    <div id="youtube-audio-container" style="display:none;"></div>
+    <button id="music-toggle-btn" class="music-btn" type="button" aria-label="播放/暫停音樂" title="播放 / 暫停音樂">
+      <svg class="music-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+      <span class="music-status-text">音樂</span>
+    </button>
+    <div class="music-volume-panel" id="music-volume-panel">
+      <label for="music-volume-slider">音量</label>
+      <input type="range" id="music-volume-slider" min="0" max="100" value="50">
+    </div>
+  </div>
+
+  <style>
+    .music-widget {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(26, 24, 29, 0.85);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(251, 146, 60, 0.3);
+      padding: 8px 14px;
+      border-radius: 50px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      color: var(--ink, #f3edf1);
+      transition: all 0.3s ease;
+    }
+    .music-btn {
+      background: transparent;
+      border: none;
+      color: #fb923c;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 4px;
+    }
+    .music-btn:hover {
+      color: #fdba74;
+    }
+    .music-volume-panel {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      border-left: 1px solid rgba(255,255,255,0.15);
+      padding-left: 10px;
+    }
+    .music-volume-panel input[type="range"] {
+      width: 70px;
+      accent-color: #fb923c;
+      cursor: pointer;
+    }
+    @media(max-width: 600px) {
+      .music-widget {
+        bottom: 16px;
+        right: 16px;
+        padding: 6px 10px;
+      }
+      .music-volume-panel input[type="range"] {
+        width: 50px;
+      }
+    }
+  </style>
+
+  <script>
+    // YouTube IFrame API Setup
+    let ytPlayer;
+    let isPlaying = false;
+
+    function onYouTubeIframeAPIReady() {
+      ytPlayer = new YT.Player('youtube-audio-container', {
+        height: '0',
+        width: '0',
+        videoId: 'cAk9Jq0Qxn4',
+        playerVars: {
+          'autoplay': 0,
+          'loop': 1,
+          'playlist': 'cAk9Jq0Qxn4',
+          'controls': 0
+        },
+        events: {
+          'onReady': (event) => {
+            event.target.setVolume(50);
+          }
+        }
+      });
+    }
+
+    // Load YouTube API script asynchronously
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleBtn = document.getElementById('music-toggle-btn');
+      const volumeSlider = document.getElementById('music-volume-slider');
+
+      toggleBtn?.addEventListener('click', () => {
+        if (!ytPlayer || typeof ytPlayer.playVideo !== 'function') return;
+        if (isPlaying) {
+          ytPlayer.pauseVideo();
+          toggleBtn.querySelector('.music-status-text').textContent = '播放音樂';
+          toggleBtn.style.opacity = '0.7';
+          isPlaying = false;
+        } else {
+          ytPlayer.playVideo();
+          toggleBtn.querySelector('.music-status-text').textContent = '暫停音樂';
+          toggleBtn.style.opacity = '1';
+          isPlaying = true;
+        }
+      });
+
+      volumeSlider?.addEventListener('input', (e) => {
+        const vol = e.target.value;
+        if (ytPlayer && typeof ytPlayer.setVolume === 'function') {
+          ytPlayer.setVolume(vol);
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
