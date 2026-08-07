@@ -219,6 +219,27 @@
         }
       });
 
+      
+      // 瀏覽器安全機制若阻擋自動播放，透過使用者第一次點擊或捲動自動解鎖播放
+      const unlockAutoplay = () => {
+        if (ytPlayer && typeof ytPlayer.playVideo === 'function' && !isPlaying) {
+          ytPlayer.playVideo();
+          isPlaying = true;
+          const toggleBtn = document.getElementById('music-toggle-btn');
+          if (toggleBtn) {
+            toggleBtn.querySelector('.music-status-text').textContent = '暫停音樂';
+            toggleBtn.style.opacity = '1';
+          }
+        }
+        window.removeEventListener('click', unlockAutoplay);
+        window.removeEventListener('scroll', unlockAutoplay);
+        window.removeEventListener('keydown', unlockAutoplay);
+      };
+
+      window.addEventListener('click', unlockAutoplay, { once: true });
+      window.addEventListener('scroll', unlockAutoplay, { once: true });
+      window.addEventListener('keydown', unlockAutoplay, { once: true });
+
       volumeSlider?.addEventListener('input', (e) => {
         const vol = e.target.value;
         if (ytPlayer && typeof ytPlayer.setVolume === 'function') {
