@@ -2,12 +2,15 @@
 <html lang="zh-TW">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>HAOWAN SERVER | Minecraft</title>
+<title>HAOWAN | Minecraft Server</title>
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="stylesheet" href="css/animation.css">
 
 </head>
 
@@ -15,61 +18,111 @@
 <body>
 
 
-<div class="container">
+<!-- 導覽列 -->
 
+<nav>
 
-<header>
-
-<div class="avatar">
-⛏️
+<div class="logo">
+HAOWAN
 </div>
+
+
+<div class="menu">
+
+<a href="#home">首頁</a>
+<a href="#features">特色</a>
+<a href="#status">狀態</a>
+<a href="#news">公告</a>
+<a href="#join">加入</a>
+<a href="#discord">Discord</a>
+
+</div>
+
+</nav>
+
+
+
+
+
+<!-- 首頁 -->
+
+<section id="home" class="hero">
+
+
+<div class="hero-content">
+
+
+<img src="assets/images/logo.png"
+class="server-logo">
 
 
 <h1>
-HAOWAN SERVER
+HAOWAN
 </h1>
 
 
-<p class="tagline">
-Minecraft Java / Bedrock 生存伺服器
-</p>
+<h2>
+Minecraft Server
+</h2>
 
 
-<div class="status">
 
-<div id="status">
-🟡 連線中...
+<div class="server-status">
+
+
+<div id="online-status">
+
+🟡 Connecting...
+
 </div>
 
 
-<div class="players">
+<div class="player-count">
 
-👥 玩家
 
-<span id="online">
+👥
+
+<span id="players">
 0
 </span>
 
-/ 
+
+/
 
 <span id="max">
 0
 </span>
 
-</div>
+
+Players
 
 
 </div>
 
 
-<div class="links">
+</div>
 
-<a href="minecraft://?addExternalServer=HAOWAN|haowan.pro">
-加入伺服器
+
+
+
+
+<p class="ip">
+
+haowan.pro
+
+</p>
+
+
+
+<div class="buttons">
+
+
+<a href="#join" class="btn">
+立即加入
 </a>
 
 
-<a href="#">
+<a href="#" class="btn discord">
 Discord
 </a>
 
@@ -77,95 +130,161 @@ Discord
 </div>
 
 
-</header>
+</div>
+
+
+</section>
 
 
 
 
-<section class="section">
+
+
+
+<!-- 特色 -->
+
+
+<section id="features"
+class="section">
+
 
 <h2>
-🎮 伺服器資訊
+伺服器特色
 </h2>
 
 
-<div class="project">
+
+<div class="cards">
+
+
+
+<div class="card">
 
 <h3>
-🌍 IP 位址
+⚔ 生存冒險
 </h3>
 
 <p>
+自由探索 Minecraft 世界。
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>
+🏝 SkyBlock
+</h3>
+
+<p>
+挑戰空島經營玩法。
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>
+💰 經濟系統
+</h3>
+
+<p>
+玩家交易與市場。
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>
+🏆 排行榜
+</h3>
+
+<p>
+玩家競爭排名。
+</p>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- 狀態 -->
+
+
+<section id="status"
+class="section">
+
+
+<h2>
+Server Status
+</h2>
+
+
+
+<div class="status-box">
+
+
+<h3 id="server-online">
+等待資料...
+</h3>
+
+
+<p>
+
+版本：
+
+<span>
+1.21.4
+</span>
+
+</p>
+
+
+<p>
+
+玩家：
+
+<span id="status-player">
+0 / 0
+</span>
+
+</p>
+
+
+<p>
+
+IP：
+
+<span>
 haowan.pro
+</span>
+
 </p>
 
-
-<h3>
-📦 版本
-</h3>
-
-<p>
-Minecraft 1.21.4
-</p>
-
-
-<h3>
-⚡ 狀態
-</h3>
-
-<p id="serverText">
-讀取中...
-</p>
 
 
 </div>
 
-</section>
-
-
-
-
-
-<section class="section">
-
-<h2>
-✨ 伺服器特色
-</h2>
-
-
-<div class="skills">
-
-<span class="skill-tag">
-生存冒險
-</span>
-
-
-<span class="skill-tag">
-經濟系統
-</span>
-
-
-<span class="skill-tag">
-SkyBlock
-</span>
-
-
-<span class="skill-tag">
-任務系統
-</span>
-
-
-<span class="skill-tag">
-玩家社群
-</span>
-
-
-<span class="skill-tag">
-每日活動
-</span>
-
-
-</div>
 
 
 </section>
@@ -175,30 +294,42 @@ SkyBlock
 
 
 
-<section class="section">
+
+
+
+<!-- 公告 -->
+
+
+<section id="news"
+class="section">
 
 
 <h2>
-📢 最新公告
+最新公告
 </h2>
 
 
-<div class="project">
+
+<div class="news">
+
 
 <h3>
-🎉 HAOWAN SERVER 開服
+🔥 夏季活動
 </h3>
 
 
 <p>
-歡迎加入我們的 Minecraft 世界！
+更多活動內容即將推出。
 </p>
 
 
 </div>
 
 
-<div class="project">
+
+
+<div class="news">
+
 
 <h3>
 🔧 系統更新
@@ -206,7 +337,7 @@ SkyBlock
 
 
 <p>
-更多遊戲內容即將推出。
+伺服器持續優化。
 </p>
 
 
@@ -221,29 +352,94 @@ SkyBlock
 
 
 
-<section class="section">
+
+
+
+<!-- 加入 -->
+
+
+<section id="join"
+class="section">
 
 
 <h2>
-💬 Discord 社群
+加入方式
+</h2>
+
+
+
+<div class="join-box">
+
+
+<h3>
+Java Edition
+</h3>
+
+
+<p>
+haowan.pro
+</p>
+
+
+
+
+<h3>
+Bedrock Edition
+</h3>
+
+
+<p>
+haowan.pro
+</p>
+
+
+<button onclick="copyIP()">
+
+複製 IP
+
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- Discord -->
+
+
+<section id="discord"
+class="section discord-section">
+
+
+<h2>
+Discord 社群
 </h2>
 
 
 <p>
-加入 Discord 與其他玩家交流。
+加入 HAOWAN 社群，與玩家交流。
 </p>
 
 
-<div class="links">
-
-<a href="#">
+<a class="btn">
 加入 Discord
 </a>
 
-</div>
-
 
 </section>
+
+
+
 
 
 
@@ -251,10 +447,11 @@ SkyBlock
 
 <footer>
 
+
 <p>
+
 © 2026 HAOWAN SERVER
-<br>
-Powered by GitHub Pages
+
 </p>
 
 
@@ -262,10 +459,10 @@ Powered by GitHub Pages
 
 
 
-</div>
 
+<script src="js/server.js"></script>
 
-<script src="script.js"></script>
+<script src="js/main.js"></script>
 
 
 </body>
