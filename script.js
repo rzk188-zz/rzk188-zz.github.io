@@ -119,19 +119,18 @@ function renderPlayerStatus(status) {
 
 async function fetchPlayerStatus() {
   try {
-    const res = await fetch('https://api.mcsrvstat.us/3/haowan.pro');
+    const res = await fetch('https://api.minetools.eu/ping/haowan.pro');
     const data = await res.json();
-    if (data.online) {
-      renderPlayerStatus({ available: true, online: true, players: data.players.online });
-    } else {
-      renderPlayerStatus({ available: true, online: false, players: 0 });
+    if (data.error) {
+      throw new Error(data.error);
     }
+    const onlineCount = data.players.online;
+    renderPlayerStatus({ available: true, online: true, players: onlineCount });
   } catch (e) {
-    // fallback or try basic
     try {
-      const res2 = await fetch('https://api.minetools.eu/ping/haowan.pro');
+      const res2 = await fetch('https://api.mcsrvstat.us/3/haowan.pro');
       const data2 = await res2.json();
-      if (data2.players) {
+      if (data2.online) {
         renderPlayerStatus({ available: true, online: true, players: data2.players.online });
         return;
       }
