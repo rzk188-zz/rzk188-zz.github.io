@@ -1,17 +1,17 @@
 :root {
-  --paper: #1a181d;
-  --mist: #252229;
+  --paper: #161418;
+  --mist: #201c22;
   --white: #fff9fc;
-  --ink: #f3edf1;
+  --ink: #f5f0f3;
   --muted: #c8bdc4;
-  --line: #4a4149;
-  --forest: #f97316;
-  --forest-dark: #ffedd5;
-  --rose: #fb923c;
-  --rose-dark: #fdba74;
-  --sky: #fb923c;
-  --gold: #ddb86f;
-  --shadow: 0 20px 54px rgba(5, 4, 7, 0.3);
+  --line: #423840;
+  --sakura-pink: #f472b6;
+  --sakura-light: #fbcfe8;
+  --sakura-dark: #db2777;
+  --warm-orange: #fb923c;
+  --warm-orange-light: #fed7aa;
+  --gold: #f59e0b;
+  --shadow: 0 20px 54px rgba(0, 0, 0, 0.4);
 }
 
 html {
@@ -33,14 +33,6 @@ input {
   font-family: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", system-ui, sans-serif;
 }
 
-p,
-li,
-dd,
-td,
-th {
-  font-weight: 550;
-}
-
 strong,
 h1,
 h2,
@@ -51,485 +43,112 @@ h4,
   font-weight: 800;
 }
 
+/* 導覽列 */
 .site-header,
 .site-header.scrolled,
 .guide-page .guide-header {
   color: var(--ink);
-  background: rgba(27, 24, 30, 0.94);
-  border-bottom-color: rgba(232, 199, 211, 0.22);
-  box-shadow: 0 10px 34px rgba(6, 5, 8, 0.22);
+  background: rgba(22, 20, 24, 0.92);
+  border-bottom: 1px solid rgba(244, 114, 182, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
 }
 
-.site-header:not(.scrolled) {
-  background: rgba(21, 20, 25, 0.68);
-}
-
-.brand img,
-.site-header.scrolled .brand img,
-.guide-page .guide-header .brand img {
-  border-color: rgba(240, 165, 185, 0.6);
-}
-
-.brand strong {
-  font-size: 21px;
-}
-
-.brand small {
-  color: #d8cbd2;
-  font-size: 10px;
-  font-weight: 800;
-}
-
-.main-nav {
-  gap: 20px;
+.brand img {
+  border: 2px solid rgba(244, 114, 182, 0.5);
+  border-radius: 50%;
 }
 
 .main-nav a {
-  color: #eee6eb;
-  font-size: 15px;
+  color: #f3edf1;
+  transition: color 0.2s;
 }
 
 .main-nav a:hover,
 .main-nav a:focus-visible,
 .main-nav a[aria-current="page"] {
-  color: #ffc0d1;
+  color: var(--sakura-pink);
 }
 
-.header-discord,
-.button-primary,
-.guide-ending > a {
+.header-discord {
   color: #fff;
-  background: #aa536f;
-  border-color: #c97991;
+  background: linear-gradient(135deg, #f472b6, #db2777);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 15px rgba(219, 39, 119, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.header-discord:hover,
-.header-discord:focus-visible,
-.button-primary:hover,
-.button-primary:focus-visible {
-  background: #c06682;
+.header-discord:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(219, 39, 119, 0.4);
 }
 
-.button-light {
-  color: #2b252a;
-  background: #f6eef2;
-  border-color: #f6eef2;
-}
-
+/* 首頁 Hero 區塊 */
 .hero-shade {
-  background: rgba(14, 15, 19, 0.42);
-  box-shadow: inset 0 -180px 140px rgba(13, 12, 16, 0.45);
+  background: rgba(15, 14, 18, 0.5);
+  box-shadow: inset 0 -180px 140px rgba(12, 11, 15, 0.6);
 }
 
 .hero-content h1 {
-  font-size: 76px;
+  font-size: 4.5rem;
+  letter-spacing: 2px;
+  background: linear-gradient(135deg, #fff, #fbcfe8, #fb923c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-lead {
-  color: #fff8fb;
-  font-size: 23px;
-  font-weight: 650;
+  color: #fbcfe8;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 .hero-supporters,
 .hero-status {
-  background: rgba(25, 22, 28, 0.9);
-  border-color: rgba(255, 223, 232, 0.3);
+  background: rgba(26, 22, 28, 0.85);
+  border: 1px solid rgba(244, 114, 182, 0.25);
+  backdrop-filter: blur(12px);
 }
 
 .hero-supporters > header span,
 .hero-supporter-amount {
-  color: #ffb4c9;
+  color: var(--sakura-pink);
 }
 
 .address-button {
   color: #fff;
-  background: rgba(34, 30, 37, 0.88);
-  border-color: rgba(255, 226, 234, 0.4);
+  background: rgba(30, 26, 33, 0.85);
+  border: 1px solid rgba(244, 114, 182, 0.3);
+  backdrop-filter: blur(10px);
 }
 
-.feature-section,
-.join-section {
-  background: var(--paper);
+.address-button strong {
+  color: var(--sakura-light);
 }
 
-.systems-section {
-  background: #211e24;
-}
-
-.community-section {
-  background: #18221f;
-}
-
-.announcement-section {
-  background: #201f22;
-  border-top: 1px solid #39363b;
-  border-bottom: 1px solid #39363b;
-}
-
-.section-heading h2,
-.feature-copy h3,
-.system-card h3,
-.community-heading h2,
-.join-card h3 {
-  color: var(--ink);
-}
-
-.section-heading > p,
-.feature-copy > p,
-.system-card p,
-.community-heading > p,
-.join-card p,
-.status-details span,
-.status-details p,
-.site-footer {
-  color: var(--muted);
-}
-
-.section-heading > p,
-.feature-copy > p,
-.system-card p,
-.community-heading > p,
-.join-card p {
-  font-size: 17px;
-}
-
-.section-heading h2 {
-  font-size: 44px;
-}
-
+/* 卡片與容器 */
 .feature-card,
 .system-card,
 .status-block,
 .join-card,
-.community-callout {
-  background: #252229;
-  border-color: var(--line);
-  box-shadow: var(--shadow);
+.guide-card,
+.podium-card {
+  background: rgba(32, 28, 35, 0.7);
+  border: 1px solid rgba(244, 114, 182, 0.18);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
 }
 
-.feature-copy,
-.system-card,
-.join-card {
-  color: var(--ink);
-}
-
-.feature-copy > p:first-child,
-.system-number,
-.eyebrow.dark,
-.status-block > header span {
-  color: var(--rose-dark);
-}
-
-.system-card-core {
-  background: #25232b;
-  border-color: #675678;
-}
-
-.status-banner,
-.status-details p,
-.join-address,
-.community-callout a:not(.button) {
-  background: #1e1c22;
-  border-color: var(--line);
-}
-
-.status-details strong,
-.join-address strong,
-.text-link,
-.feature-copy a {
-  color: #f3b4c6;
-}
-
+/* 頁尾 */
 .site-footer {
-  background: #141318;
-  border-top-color: var(--line);
-}
-
-.guide-hero-shade {
-  background: rgba(20, 18, 24, 0.58);
-  box-shadow: inset 0 -150px 120px rgba(16, 14, 20, 0.58);
-}
-
-.guide-hero-content h1 {
-  font-size: 64px;
-}
-
-.guide-hero-content > span {
-  color: #fff5f8;
-  font-size: 19px;
-  font-weight: 600;
-}
-
-.guide-hero-content p,
-.guide-section-heading > p,
-.waystone-guide > div > p,
-.guide-ending p {
-  color: #f3adc1;
-  font-size: 13px;
-}
-
-.guide-tools,
-.guide-note,
-.command-row,
-.feature-guide,
-.skill-card,
-.mechanic-item,
-.resident-summary,
-.vip-shared,
-.game-command-grid article,
-.social-groups article,
-.starter-kit-grid article,
-.life-loop-grid article {
-  color: var(--ink);
-  background: #252229;
-  border-color: var(--line);
-}
-
-.guide-search input,
-.guide-server-brief p {
-  color: var(--ink);
-  background: #1e1c22;
-  border-color: var(--line);
-}
-
-.guide-search > span,
-.guide-result,
-.guide-sidebar nav a,
-.guide-section-heading > span,
-.guide-note p,
-.guide-note ol,
-.rule-item ul,
-.command-row p,
-.feature-guide p,
-.feature-guide dt,
-.life-system-list,
-.skill-card p,
-.mechanic-item p,
-.access-card ul,
-.vip-footnote,
-.game-command-grid p {
+  background: #110f13;
+  border-top: 1px solid rgba(244, 114, 182, 0.15);
   color: var(--muted);
 }
 
-.guide-search > span,
-.guide-sidebar nav a {
-  font-size: 15px;
-  font-weight: 700;
-}
-
-.guide-section-heading h2,
-.guide-note h3,
-.rule-item h3,
-.command-row h3,
-.feature-guide h3,
-.skill-card h3,
-.access-card h3,
-.mechanic-item h3 {
-  color: var(--forest-dark);
-}
-
-.guide-section-heading h2 {
-  font-size: 42px;
-}
-
-.guide-section-heading > span,
-.guide-note p,
-.guide-note ol,
-.rule-item ul {
-  font-size: 17px;
-  font-weight: 550;
-}
-
-.guide-sidebar {
-  border-left-color: var(--line);
-}
-
-.guide-sidebar > p {
-  color: #8fc7bd;
-  font-size: 18px;
-}
-
-.guide-sidebar nav a:hover,
-.guide-sidebar nav a:focus-visible,
-.guide-sidebar nav a.active,
-.sidebar-discord,
-.feature-guide a {
-  color: var(--rose-dark);
-}
-
-.guide-section + .guide-section,
-.rule-list,
-.rule-item,
-.command-list,
-.command-row,
-.skill-catalog-grid,
-.game-command-grid {
-  border-color: var(--line);
-}
-
-.guide-note-primary,
-.tier-requirement {
-  color: #ffd9e3;
-  background: #3a2932;
-}
-
-.guide-note-primary {
-  border-left-color: var(--rose);
-}
-
-code,
-kbd {
-  color: #f7bfd0;
-  background: #312830;
-  border-color: #5c4854;
-  font-size: 0.95em;
-  font-weight: 750;
-}
-
-.command-row h3,
-.feature-guide h3,
-.skill-card h3,
-.access-card h3 {
-  font-size: 21px;
-}
-
-.command-row p,
-.feature-guide p,
-.life-system-list,
-.skill-card p,
-.access-card ul,
-.game-command-grid p {
-  font-size: 16px;
-  font-weight: 550;
-}
-
-.feature-guide dl div,
-.life-loop-grid,
-.mechanic-specs,
-.vip-upgrade-note {
-  color: var(--ink);
-  background: #201e23;
-  border-color: var(--line);
-}
-
-.life-progression,
-.waystone-guide,
-.guide-ending {
-  color: var(--ink);
-  background: #192421;
-}
-
-.life-progression > header span,
-.life-milestones small,
-.waystone-guide > div > span,
-.guide-ending span {
-  color: #c9d9d5;
-}
-
-.life-milestones span,
-.life-progression h3,
-.waystone-guide h3 {
-  color: #fff9fc;
-}
-
-.vip-upgrade-note {
-  color: var(--ink);
-  border-left-color: var(--rose);
-}
-
-.vip-upgrade-note strong {
-  color: var(--rose-dark);
-}
-
+/* 提示與按鈕 */
 .copy-toast {
-  color: #1d181c;
-  background: #f4d7e0;
-}
-
-@media (max-width: 1120px) {
-  .main-nav {
-    color: var(--ink);
-    background: #201d23;
-    border-bottom-color: #514750;
-    box-shadow: 0 18px 34px rgba(5, 4, 7, 0.38);
-  }
-
-  .main-nav a {
-    color: #eee6eb;
-    border-bottom-color: #514750;
-  }
-
-  .main-nav a:hover,
-  .main-nav a:focus-visible,
-  .main-nav a[aria-current="page"] {
-    color: #ffc0d1;
-  }
-}
-
-@media (max-width: 760px) {
-  body,
-  .guide-page {
-    font-size: 16px;
-  }
-
-  .hero-content h1 {
-    font-size: 50px;
-  }
-
-  .hero-lead {
-    font-size: 18px;
-  }
-
-  .section-heading h2,
-  .guide-section-heading h2 {
-    font-size: 34px;
-  }
-
-  .guide-hero-content h1 {
-    font-size: 43px;
-  }
-
-  .guide-section-heading > span,
-  .guide-note p,
-  .guide-note ol,
-  .rule-item ul {
-    font-size: 16px;
-  }
-
-  .main-nav a {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 900px) {
-  .guide-sidebar {
-    background: rgba(29, 27, 32, 0.98);
-    border-bottom-color: var(--line);
-    box-shadow: 0 8px 22px rgba(5, 4, 7, 0.2);
-  }
-
-  .guide-sidebar nav a {
-    color: #c9bec5;
-  }
-
-  .guide-sidebar nav a.active,
-  .guide-sidebar nav a:hover,
-  .guide-sidebar nav a:focus-visible {
-    color: #f5adc1;
-  }
-}
-
-@media (orientation: landscape) and (max-height: 560px) and (max-width: 1120px) {
-  .hero-content h1,
-  .guide-hero-content h1 {
-    font-size: 46px;
-  }
-}
-
-@media (prefers-contrast: more) {
-  :root {
-    --muted: #e0d7dc;
-    --line: #6b6068;
-  }
+  color: #161418;
+  background: #fbcfe8;
+  font-weight: 700;
 }
