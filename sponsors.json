@@ -22,21 +22,5 @@
     "currency": "TWD",
     "hideAmount": false,
     "message": "最喜歡粘液科技了"
-  },
-  {
-    "name": "玩家A",
-    "minecraftId": "Notch",
-    "amount": 1000,
-    "currency": "TWD",
-    "hideAmount": false,
-    "message": "伺服器超讚！"
-  },
-  {
-    "name": "玩家B",
-    "minecraftId": "Jeb_",
-    "amount": 800,
-    "currency": "TWD",
-    "hideAmount": false,
-    "message": "每天都要上線蓋房子"
   }
 ]
