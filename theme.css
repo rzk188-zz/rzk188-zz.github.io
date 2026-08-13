@@ -1,16 +1,15 @@
 :root {
-  --paper: #1c1824;
-  --mist: #292436;
-  --white: #fffbfe;
-  --ink: #fdf6fa;
-  --muted: #d8c8d4;
-  --line: #524252;
-  --kawaii-pink: #ff758f;
-  --kawaii-pink-light: #ffb3c6;
-  --kawaii-purple: #c77dff;
-  --kawaii-blue: #70d6ff;
-  --kawaii-yellow: #ffd166;
-  --shadow: 0 20px 50px rgba(199, 125, 255, 0.15);
+  --paper: #181615;
+  --mist: #24201e;
+  --white: #fffcf9;
+  --ink: #fef5ed;
+  --muted: #cbb8ac;
+  --line: #423832;
+  --orange-primary: #f97316;
+  --orange-light: #fb923c;
+  --orange-lighter: #fdba74;
+  --orange-glow: rgba(249, 115, 22, 0.25);
+  --shadow: 0 20px 40px rgba(249, 115, 22, 0.12);
 }
 
 html {
@@ -42,25 +41,25 @@ h4,
   font-weight: 800;
 }
 
-/* 導覽列： Q 彈可愛風 */
+/* 導覽列：淡橘色風格 */
 .site-header,
 .site-header.scrolled,
 .guide-page .guide-header {
   color: var(--ink);
-  background: rgba(28, 24, 36, 0.88);
-  border-bottom: 2px solid rgba(255, 117, 143, 0.25);
-  box-shadow: 0 10px 30px rgba(199, 125, 255, 0.12);
+  background: rgba(24, 22, 21, 0.9);
+  border-bottom: 2px solid rgba(249, 115, 22, 0.3);
+  box-shadow: 0 10px 30px rgba(249, 115, 22, 0.1);
   backdrop-filter: blur(12px);
 }
 
 .brand img {
-  border: 3px solid var(--kawaii-pink);
+  border: 3px solid var(--orange-light);
   border-radius: 50%;
-  box-shadow: 0 0 15px rgba(255, 117, 143, 0.4);
+  box-shadow: 0 0 15px rgba(249, 115, 22, 0.4);
 }
 
 .main-nav a {
-  color: #fce8f3;
+  color: #fed7aa;
   border-radius: 50px;
   padding: 0.4rem 0.9rem;
   transition: all 0.25s ease;
@@ -70,78 +69,78 @@ h4,
 .main-nav a:focus-visible,
 .main-nav a[aria-current="page"] {
   color: #fff;
-  background: rgba(255, 117, 143, 0.2);
+  background: rgba(249, 115, 22, 0.25);
   transform: translateY(-2px);
 }
 
 .header-discord {
   color: #fff;
-  background: linear-gradient(135deg, #ff758f, #c77dff);
+  background: linear-gradient(135deg, #f97316, #fb923c);
   border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 50px;
-  box-shadow: 0 6px 20px rgba(255, 117, 143, 0.35);
+  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.35);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .header-discord:hover {
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 8px 25px rgba(255, 117, 143, 0.5);
+  box-shadow: 0 8px 25px rgba(249, 115, 22, 0.5);
 }
 
 /* 首頁 Hero 區塊 */
 .hero-shade {
-  background: rgba(20, 16, 28, 0.45);
-  box-shadow: inset 0 -180px 140px rgba(15, 12, 22, 0.6);
+  background: rgba(20, 17, 15, 0.5);
+  box-shadow: inset 0 -180px 140px rgba(15, 12, 10, 0.7);
 }
 
 .hero-content h1 {
   font-size: 4.8rem;
   letter-spacing: 2px;
-  background: linear-gradient(135deg, #ffffff, #ffb3c6, #ffd166);
+  background: linear-gradient(135deg, #ffffff, #fed7aa, #fb923c);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 10px 30px rgba(255, 117, 143, 0.3);
+  text-shadow: 0 10px 30px rgba(249, 115, 22, 0.3);
 }
 
 .hero-lead {
-  color: #ffb3c6;
+  color: #fed7aa;
   font-size: 1.25rem;
   font-weight: 700;
 }
 
 .hero-supporters,
 .hero-status {
-  background: rgba(35, 29, 46, 0.85);
-  border: 2px solid rgba(255, 117, 143, 0.3);
-  border-radius: 24px;
+  background: rgba(36, 32, 30, 0.85);
+  border: 2px solid rgba(249, 115, 22, 0.35);
+  border-radius: 20px;
   backdrop-filter: blur(12px);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 }
 
 .hero-supporters > header span,
 .hero-supporter-amount {
-  color: var(--kawaii-pink);
+  color: var(--orange-light);
 }
 
 .address-button {
   color: #fff;
-  background: rgba(40, 33, 52, 0.9);
-  border: 2px solid rgba(199, 125, 255, 0.35);
-  border-radius: 20px;
+  background: rgba(40, 35, 32, 0.9);
+  border: 2px solid rgba(249, 115, 22, 0.4);
+  border-radius: 16px;
   backdrop-filter: blur(10px);
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
 .address-button:hover {
   transform: translateY(-3px);
-  border-color: var(--kawaii-pink);
+  border-color: var(--orange-light);
 }
 
 .address-button strong {
-  color: var(--kawaii-yellow);
+  color: var(--orange-lighter);
 }
 
-/* 卡片與容器：大圓角萌系風格 */
+/* 卡片與容器 */
 .feature-card,
 .system-card,
 .status-block,
@@ -152,24 +151,24 @@ h4,
 .guide-tools,
 .guide-note,
 .command-row {
-  background: rgba(35, 29, 46, 0.75);
-  border: 2px solid rgba(255, 117, 143, 0.22);
-  border-radius: 28px;
+  background: rgba(36, 32, 30, 0.8);
+  border: 2px solid rgba(249, 115, 22, 0.25);
+  border-radius: 20px;
   box-shadow: var(--shadow);
   backdrop-filter: blur(14px);
 }
 
 /* 頁尾 */
 .site-footer {
-  background: #14101b;
-  border-top: 2px solid rgba(255, 117, 143, 0.15);
+  background: #141110;
+  border-top: 2px solid rgba(249, 115, 22, 0.2);
   color: var(--muted);
 }
 
 /* 提示與按鈕 */
 .copy-toast {
-  color: #1c1824;
-  background: #ffd166;
+  color: #181615;
+  background: #fb923c;
   font-weight: 800;
   border-radius: 50px;
 }
