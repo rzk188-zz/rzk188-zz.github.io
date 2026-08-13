@@ -1,19 +1,19 @@
 :root {
-  --paper: #fffaf5;
-  --mist: #ffedd5;
+  --paper: #161312;
+  --mist: #211c19;
   --white: #ffffff;
-  --ink: #292524;
-  --muted: #78716c;
-  --line: #fed7aa;
+  --ink: #fef3c7;
+  --muted: #d6bc9f;
+  --line: #443428;
   --orange-primary: #f97316;
-  --orange-light: #ea580c;
-  --orange-lighter: #c2410c;
-  --orange-glow: rgba(249, 115, 22, 0.15);
-  --shadow: 0 20px 40px rgba(249, 115, 22, 0.08);
+  --orange-light: #fb923c;
+  --orange-lighter: #fdba74;
+  --orange-glow: rgba(249, 115, 22, 0.2);
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
 }
 
 html {
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 body,
@@ -41,25 +41,25 @@ h4,
   font-weight: 800;
 }
 
-/* 導覽列：明亮淡橘色風格 */
+/* 導覽列：深色淡橘風 */
 .site-header,
 .site-header.scrolled,
 .guide-page .guide-header {
   color: var(--ink);
-  background: rgba(255, 250, 245, 0.9);
-  border-bottom: 2px solid rgba(249, 115, 22, 0.25);
-  box-shadow: 0 10px 30px rgba(249, 115, 22, 0.06);
+  background: rgba(22, 19, 18, 0.9);
+  border-bottom: 2px solid rgba(249, 115, 22, 0.35);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(12px);
 }
 
 .brand img {
-  border: 3px solid var(--orange-primary);
+  border: 3px solid var(--orange-light);
   border-radius: 50%;
-  box-shadow: 0 0 15px rgba(249, 115, 22, 0.25);
+  box-shadow: 0 0 15px rgba(249, 115, 22, 0.4);
 }
 
 .main-nav a {
-  color: #44403c;
+  color: #fed7aa;
   border-radius: 50px;
   padding: 0.4rem 0.9rem;
   transition: all 0.25s ease;
@@ -69,125 +69,96 @@ h4,
 .main-nav a:focus-visible,
 .main-nav a[aria-current="page"] {
   color: #fff;
-  background: #f97316;
+  background: rgba(249, 115, 22, 0.3);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+  box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
 }
 
 .header-discord {
   color: #fff;
-  background: linear-gradient(135deg, #f97316, #ea580c);
-  border: 2px solid rgba(255, 255, 255, 0.4);
+  background: linear-gradient(135deg, #f97316, #fb923c);
+  border: 2px solid rgba(255, 255, 255, 0.25);
   border-radius: 50px;
-  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.3);
+  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .header-discord:hover {
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 8px 25px rgba(249, 115, 22, 0.45);
+  box-shadow: 0 8px 25px rgba(249, 115, 22, 0.6);
 }
 
 /* 首頁 Hero 區塊 */
 .hero-shade {
-  background: rgba(255, 247, 237, 0.35);
-  box-shadow: inset 0 -180px 140px rgba(255, 247, 237, 0.6);
+  background: rgba(18, 15, 14, 0.6);
+  box-shadow: inset 0 -180px 140px rgba(12, 10, 9, 0.8);
 }
 
 .hero-content h1 {
   font-size: 4.8rem;
   letter-spacing: 2px;
-  background: linear-gradient(135deg, #7c2d12, #c2410c, #f97316);
+  background: linear-gradient(135deg, #ffffff, #fed7aa, #fb923c);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 10px 30px rgba(249, 115, 22, 0.15);
+  text-shadow: 0 10px 30px rgba(249, 115, 22, 0.3);
 }
 
 .hero-lead {
-  color: #9a3412;
+  color: #fed7aa;
   font-size: 1.25rem;
   font-weight: 700;
 }
 
 .hero-supporters,
 .hero-status {
-  background: rgba(255, 255, 255, 0.85);
-  border: 2px solid rgba(249, 115, 22, 0.3);
+  background: rgba(33, 28, 25, 0.88);
+  border: 2px solid rgba(249, 115, 22, 0.4);
   border-radius: 20px;
   backdrop-filter: blur(12px);
-  box-shadow: 0 15px 35px rgba(249, 115, 22, 0.1);
-  color: #292524;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  color: #fef3c7;
 }
 
 .hero-supporters > header span,
 .hero-supporter-amount {
-  color: #ea580c;
+  color: #fb923c;
 }
 
 .hero-supporter-item {
-  background: rgba(255, 247, 237, 0.7) !important;
-  border-color: rgba(249, 115, 22, 0.15) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(249, 115, 22, 0.2) !important;
 }
 
 .hero-supporter-info strong {
-  color: #1c1917 !important;
-}
-
-.hero-supporter-info small {
-  color: #78716c !important;
+  color: #fff !important;
 }
 
 .address-button {
-  color: #292524;
-  background: rgba(255, 255, 255, 0.9);
+  color: #fff;
+  background: rgba(33, 28, 25, 0.9);
   border: 2px solid rgba(249, 115, 22, 0.4);
   border-radius: 16px;
   backdrop-filter: blur(10px);
-  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
 .address-button:hover {
   transform: translateY(-3px);
-  border-color: #f97316;
-  background: #fff7ed;
-}
-
-.address-button span {
-  color: #78716c !important;
+  border-color: #fb923c;
 }
 
 .address-button strong {
-  color: #c2410c !important;
-}
-
-.address-button small {
-  color: #ea580c !important;
+  color: #fdba74 !important;
 }
 
 .server-info-box {
-  background: rgba(255, 255, 255, 0.9) !important;
-  border: 2px solid rgba(249, 115, 22, 0.3) !important;
-  color: #292524 !important;
-}
-
-.server-info-box span {
-  color: #78716c !important;
+  background: rgba(33, 28, 25, 0.9) !important;
+  border: 2px solid rgba(249, 115, 22, 0.35) !important;
+  color: #fef3c7 !important;
 }
 
 .server-info-box strong {
-  color: #c2410c !important;
-}
-
-.hero-status {
-  color: #292524 !important;
-}
-
-.hero-status-copy small {
-  color: #78716c !important;
-}
-
-.hero-status-copy strong {
-  color: #c2410c !important;
+  color: #fdba74 !important;
 }
 
 /* 卡片與容器 */
@@ -201,38 +172,38 @@ h4,
 .guide-tools,
 .guide-note,
 .command-row {
-  background: rgba(255, 255, 255, 0.9);
-  border: 2px solid rgba(249, 115, 22, 0.25);
+  background: rgba(33, 28, 25, 0.85);
+  border: 2px solid rgba(249, 115, 22, 0.3);
   border-radius: 20px;
   box-shadow: var(--shadow);
   backdrop-filter: blur(14px);
-  color: #292524;
+  color: #fef3c7;
 }
 
 .podium-card {
-  background: #ffffff !important;
-  border-color: rgba(249, 115, 22, 0.3) !important;
+  background: rgba(33, 28, 25, 0.9) !important;
+  border-color: rgba(249, 115, 22, 0.4) !important;
 }
 
 .podium-name {
-  color: #1c1917 !important;
+  color: #fff !important;
 }
 
 .podium-amount {
-  color: #ea580c !important;
+  color: #fb923c !important;
 }
 
 /* 頁尾 */
 .site-footer {
-  background: #ffedd5;
-  border-top: 2px solid rgba(249, 115, 22, 0.2);
-  color: #78716c;
+  background: #12100f;
+  border-top: 2px solid rgba(249, 115, 22, 0.25);
+  color: var(--muted);
 }
 
 /* 提示與按鈕 */
 .copy-toast {
-  color: #ffffff;
-  background: #f97316;
+  color: #161312;
+  background: #fb923c;
   font-weight: 800;
   border-radius: 50px;
 }
