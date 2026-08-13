@@ -19,7 +19,7 @@ html {
 body,
 .guide-page {
   color: var(--ink);
-  background: var(--paper);
+  background: var(--paper) !important;
   font-size: 17px;
   font-weight: 500;
   line-height: 1.8;
@@ -46,8 +46,8 @@ h4,
 .site-header.scrolled,
 .guide-page .guide-header {
   color: var(--ink);
-  background: rgba(22, 19, 18, 0.9);
-  border-bottom: 2px solid rgba(249, 115, 22, 0.35);
+  background: rgba(22, 19, 18, 0.9) !important;
+  border-bottom: 2px solid rgba(249, 115, 22, 0.35) !important;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(12px);
 }
@@ -88,116 +88,41 @@ h4,
   box-shadow: 0 8px 25px rgba(249, 115, 22, 0.6);
 }
 
-/* 首頁 Hero 區塊 */
-.hero-shade {
-  background: rgba(18, 15, 14, 0.6);
-  box-shadow: inset 0 -180px 140px rgba(12, 10, 9, 0.8);
-}
-
-.hero-content h1 {
-  font-size: 4.8rem;
-  letter-spacing: 2px;
-  background: linear-gradient(135deg, #ffffff, #fed7aa, #fb923c);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 10px 30px rgba(249, 115, 22, 0.3);
-}
-
-.hero-lead {
-  color: #fed7aa;
-  font-size: 1.25rem;
-  font-weight: 700;
-}
-
-.hero-supporters,
-.hero-status {
-  background: rgba(33, 28, 25, 0.88);
-  border: 2px solid rgba(249, 115, 22, 0.4);
-  border-radius: 20px;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-  color: #fef3c7;
-}
-
-.hero-supporters > header span,
-.hero-supporter-amount {
-  color: #fb923c;
-}
-
-.hero-supporter-item {
-  background: rgba(255, 255, 255, 0.04) !important;
-  border: 1px solid rgba(249, 115, 22, 0.2) !important;
-}
-
-.hero-supporter-info strong {
-  color: #fff !important;
-}
-
-.address-button {
-  color: #fff;
-  background: rgba(33, 28, 25, 0.9);
-  border: 2px solid rgba(249, 115, 22, 0.4);
-  border-radius: 16px;
-  backdrop-filter: blur(10px);
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.address-button:hover {
-  transform: translateY(-3px);
-  border-color: #fb923c;
-}
-
-.address-button strong {
-  color: #fdba74 !important;
-}
-
-.server-info-box {
-  background: rgba(33, 28, 25, 0.9) !important;
-  border: 2px solid rgba(249, 115, 22, 0.35) !important;
-  color: #fef3c7 !important;
-}
-
-.server-info-box strong {
-  color: #fdba74 !important;
-}
-
-/* 卡片與容器 */
+/* 確保所有次頁的區塊與卡片背景與首頁一致 */
+.guide-section,
 .feature-card,
 .system-card,
 .status-block,
 .join-card,
 .guide-card,
 .podium-card,
-.guide-section,
 .guide-tools,
 .guide-note,
 .command-row {
-  background: rgba(33, 28, 25, 0.85);
-  border: 2px solid rgba(249, 115, 22, 0.3);
+  background: rgba(33, 28, 25, 0.85) !important;
+  border: 2px solid rgba(249, 115, 22, 0.3) !important;
   border-radius: 20px;
   box-shadow: var(--shadow);
   backdrop-filter: blur(14px);
-  color: #fef3c7;
+  color: #fef3c7 !important;
 }
 
-.podium-card {
-  background: rgba(33, 28, 25, 0.9) !important;
-  border-color: rgba(249, 115, 22, 0.4) !important;
+input, textarea, select {
+  background: rgba(22, 19, 18, 0.8) !important;
+  border: 1px solid rgba(249, 115, 22, 0.3) !important;
+  color: #fef3c7 !important;
 }
 
-.podium-name {
-  color: #fff !important;
-}
-
-.podium-amount {
-  color: #fb923c !important;
+input:focus, textarea:focus, select:focus {
+  border-color: #fb923c !important;
+  box-shadow: 0 0 10px rgba(249, 115, 22, 0.3);
 }
 
 /* 頁尾 */
 .site-footer {
-  background: #12100f;
-  border-top: 2px solid rgba(249, 115, 22, 0.25);
-  color: var(--muted);
+  background: #12100f !important;
+  border-top: 2px solid rgba(249, 115, 22, 0.25) !important;
+  color: var(--muted) !important;
 }
 
 /* 提示與按鈕 */
